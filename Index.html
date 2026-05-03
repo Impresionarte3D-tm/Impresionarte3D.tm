@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Impresionarte 3D | Impresión 3D de Alta Calidad en Temperley</title>
+    <meta name="description" content="Servicio de impresión 3D de alta calidad. Prototipos, figuras personalizadas, regalería (mates, chopps, llaveros), material didáctico y decoración para eventos. Entregas en Temperley y envíos.">
+    <meta name="keywords" content="impresión 3D, Temperley, zona sur, impresión 3D zona sur, mates 3D, llaveros personalizados, figuras 3D, Bambu Lab, regalos personalizados">
+    <meta name="author" content="Impresionarte 3D">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #1e1e2a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            position: sticky; top: 0; z-index: 100;
+        }
+
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 0; flex-wrap: wrap; gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem; font-weight: 800;
+            background: linear-gradient(135deg, #2b3b4e, #1d7e6b);
+            -webkit-background-clip: text; color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span { font-size: 0.9rem; font-weight: 400; color: #5b6e8c; display: block; }
+
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { text-decoration: none; font-weight: 600; color: #2c3e4e; transition: 0.2s; }
+        .nav-links a:hover { color: #1d7e6b; }
+
+        .btn-ig {
+            background: #d62976; color: white !important; padding: 8px 20px;
+            border-radius: 40px; display: inline-flex; align-items: center;
+            gap: 10px; font-weight: 600; transition: 0.2s; text-decoration: none;
+        }
+        .btn-ig:hover { background: #c41e5a; transform: scale(1.02); }
+
+        .hero { padding: 80px 0 60px; background: linear-gradient(145deg, #f9fafc 0%, #f0f4f8 100%); }
+        .hero-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
+        .hero-content { flex: 1.2; }
+
+        .hero-badge {
+            background: #e0f2e9; color: #1b6b5e; display: inline-block;
+            padding: 6px 14px; border-radius: 40px; font-size: 0.85rem;
+            font-weight: 600; margin-bottom: 24px;
+        }
+
+        .hero-content h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: #1f2a3e; }
+        .hero-content p { font-size: 1.2rem; color: #4a5568; margin-bottom: 32px; max-width: 550px; }
+
+        .hero-image {
+            flex: 0.9;
+            background: url('hero.png') center/cover no-repeat;
+            border-radius: 32px; min-height: 320px; background-color: #dce5ec;
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15);
+        }
+
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; }
+        .section-sub { text-align: center; color: #5b6e8c; max-width: 650px; margin: 0 auto 56px; }
+
+        .cards { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; }
+        
+        /* ESTILOS DE LAS TARJETAS (Ajustado para fotos) */
+        .card {
+            background: white; border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.05); flex: 1 1 280px;
+            transition: all 0.25s ease; text-align: center; border: 1px solid #ecf3f9;
+            overflow: hidden; /* Importante para que la foto no se salga */
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 24px 40px rgba(0,0,0,0.1); }
+        
+        /* Contenedor de la foto en la tarjeta */
+        .card-image-top {
+            width: 100%;
+            height: 200px; /* Altura fija para la imagen */
+            overflow: hidden;
+            border-bottom: 1px solid #ecf3f9;
+        }
+        .card-image-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Clave para que la foto encuadre perfecto sin deformarse */
+        }
+        /* FONDOS PREMIUM CON CSS PARA PNGS TRANSPARENTES */
+        .premium-bg {
+            background-image: url('podio_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .premium-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.1); /* Overlay de luz muy sutil */
+        }
+        .premium-bg img {
+            object-fit: contain !important; /* Para que el PNG no se recorte */
+            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.25)) drop-shadow(0 5px 5px rgba(0,0,0,0.15)); /* Doble sombra para súper realismo 3D */
+            z-index: 2;
+            padding: 15px;
+            transform: scale(0.95) translateY(-5px); /* Eleva un poco el producto */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover .premium-bg img, .card:hover .premium-bg-desk img {
+            transform: scale(1.08) translateY(-10px); /* Efecto de flotar hacia arriba y crecer */
+        }
+        
+        /* ESTILOS PARA MÚLTIPLES IMÁGENES SUPERPUESTAS */
+        .multi-img img {
+            position: absolute;
+            width: 65% !important; /* Más chicas para que entren ambas */
+        }
+        .multi-img .img-back {
+            right: 0;
+            top: 10px;
+            z-index: 1;
+            transform: scale(0.85) translateY(0);
+            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.2)) blur(0.5px); /* Efecto de profundidad de campo */
+        }
+        .multi-img .img-front {
+            left: 0;
+            z-index: 3;
+            transform: scale(0.95) translateY(5px);
+        }
+        .card:hover .multi-img .img-front {
+            transform: scale(1.05) translateY(-5px) !important;
+        }
+        .card:hover .multi-img .img-back {
+            transform: scale(0.95) translateY(-10px) !important;
+        }
+        
+        /* Variante 2 de fondo: Escritorio de madera/estudio */
+        .premium-bg-desk {
+            background-image: url('desk_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .premium-bg-desk::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.15); 
+        }
+        .premium-bg-desk img {
+            object-fit: contain !important;
+            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.25)) drop-shadow(0 5px 5px rgba(0,0,0,0.15));
+            z-index: 2;
+            padding: 15px;
+            transform: scale(0.95) translateY(-5px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Variante 3 de fondo: Madera cálida para Mates */
+        .premium-bg-wood {
+            background-image: url('wood_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .premium-bg-wood::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.1); 
+        }
+        .premium-bg-wood img {
+            object-fit: contain !important;
+            filter: drop-shadow(5px 15px 25px rgba(0,0,0,0.3)) drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+            z-index: 2;
+            padding: 15px;
+            transform: scale(0.95) translateY(-5px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Variante 4 de fondo: Interior claro para Deco */
+        .premium-bg-marble {
+            background-image: url('marble_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .premium-bg-marble::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.4); 
+        }
+        .premium-bg-marble img {
+            object-fit: contain !important;
+            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.2)) drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+            z-index: 2;
+            padding: 15px;
+            transform: scale(0.95) translateY(-5px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover .premium-bg-wood img, .card:hover .premium-bg-marble img {
+            transform: scale(1.08) translateY(-10px);
+        }
+
+        /* Efecto Crossfade (Transición suave entre 2 fotos sólidas) */
+        .crossfade-container {
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            padding: 0 !important;
+        }
+        .crossfade-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            position: absolute;
+            top: 0; left: 0;
+            padding: 0 !important;
+            filter: none !important;
+            transition: opacity 0.5s ease-in-out, transform 0.8s ease;
+        }
+        .cf-top {
+            z-index: 2;
+            opacity: 1;
+        }
+        .cf-bottom {
+            z-index: 1;
+        }
+        .card:hover .cf-top {
+            opacity: 0;
+        }
+        .card:hover .cf-bottom {
+            transform: scale(1.05);
+        }
+
+        /* Foto enmarcada limpia (Llenando todo el espacio) */
+        .framed-photo {
+            padding: 0 !important;
+            background: #fff;
+            overflow: hidden;
+        }
+        .framed-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            max-width: 100% !important;
+            max-height: 100% !important;
+            filter: none !important;
+            transition: transform 0.6s ease;
+        }
+        .card:hover .framed-photo img {
+            transform: scale(1.1);
+        }
+
+        /* Efecto Slideshow Automático (Soporta hasta 5 fotos) */
+        .slideshow-container {
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            padding: 0 !important;
+        }
+        .slideshow-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            position: absolute;
+            top: 0; left: 0;
+            padding: 0 !important;
+            filter: none !important;
+            opacity: 0;
+            animation: slideFade 15s infinite;
+        }
+        .slideshow-container img:nth-child(1) { animation-delay: 0s; }
+        .slideshow-container img:nth-child(2) { animation-delay: 3s; }
+        .slideshow-container img:nth-child(3) { animation-delay: 6s; }
+        .slideshow-container img:nth-child(4) { animation-delay: 9s; }
+        .slideshow-container img:nth-child(5) { animation-delay: 12s; }
+
+        @keyframes slideFade {
+            0% { opacity: 0; transform: scale(1); }
+            5% { opacity: 1; transform: scale(1.02); }
+            20% { opacity: 1; transform: scale(1.05); }
+            25% { opacity: 0; transform: scale(1.06); }
+            100% { opacity: 0; }
+        }
+
+        /* Contenedor del texto en la tarjeta */
+        .card-content { padding: 25px; }
+        .card-content i { font-size: 2.8rem; color: #1d7e6b; margin-bottom: 20px; } /* Para las tarjetas sin foto */
+        .card-content h3 { font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: #1f2a3e; }
+        .card-content p { color: #5b6e8c; font-size: 0.95rem; font-weight: 400; }
+
+        /* Clases de animación */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Retraso escalonado para las tarjetas */
+        .card:nth-child(1) { transition-delay: 0.1s; }
+        .card:nth-child(2) { transition-delay: 0.2s; }
+        .card:nth-child(3) { transition-delay: 0.3s; }
+        .card:nth-child(4) { transition-delay: 0.4s; }
+
+        /* ESTILOS DE LA GALERÍA MODAL */
+        .modal {
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.85);
+            align-items: center; justify-content: center; backdrop-filter: blur(5px);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal.show { opacity: 1; }
+        
+        .modal-content {
+            background-color: #fff; margin: auto; padding: 30px;
+            border-radius: 20px; width: 90%; max-width: 1000px; max-height: 90vh;
+            overflow-y: auto; position: relative;
+            transform: translateY(20px); transition: transform 0.3s ease;
+        }
+        .modal.show .modal-content { transform: translateY(0); }
+
+        .close-btn {
+            position: absolute; top: 15px; right: 20px;
+            color: #5b6e8c; font-size: 28px; font-weight: bold; cursor: pointer;
+            transition: 0.2s;
+        }
+        .close-btn:hover { color: #d62976; }
+
+        .modal-header h2 { margin-bottom: 20px; color: #1f2a3e; font-size: 2rem; border-bottom: 2px solid #ecf3f9; padding-bottom: 10px; }
+
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            width: 100%; height: 200px; border-radius: 12px;
+            object-fit: cover; cursor: pointer; transition: transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .gallery-item:hover { transform: scale(1.05); }
+
+        /* Hacer las tarjetas cliqueables */
+        .card { cursor: pointer; }
+
+        .contact-section {
+            background: #1f2a3e; color: white; border-radius: 40px;
+            margin-bottom: 40px; padding: 56px 48px;
+        }
+
+        .form-whatsapp {
+            background: white; padding: 30px; border-radius: 20px; color: #333;
+        }
+
+        .form-whatsapp input, .form-whatsapp select, .form-whatsapp textarea {
+            width: 100%; padding: 15px; margin-bottom: 15px;
+            border: 1px solid #ddd; border-radius: 8px;
+            font-family: 'Poppins', sans-serif; outline: none;
+        }
+
+        .form-whatsapp input:focus, .form-whatsapp select:focus, .form-whatsapp textarea:focus {
+            border-color: #1d7e6b;
+        }
+
+        .btn-wsp {
+            background: #25D366; color: white; width: 100%; padding: 15px;
+            border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem;
+            cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .btn-wsp:hover { background: #1ebd57; }
+
+        footer { text-align: center; padding: 32px 0; color: #6c7a91; border-top: 1px solid #ecf3f9; }
+
+        /* BOTÓN FLOTANTE WHATSAPP */
+        .wsp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF !important;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .wsp-float:hover {
+            background-color: #20b858;
+            transform: scale(1.15) translateY(-5px);
+        }
+
+        /* INSIGNIA DE CONFIANZA BAMBU LAB */
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        
+        @media (max-width: 760px) {
+            .navbar { flex-direction: column; }
+            .hero-content h1 { font-size: 2.4rem; }
+            .hero-grid { gap: 20px; }
+            .contact-section { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <h1>Impresionarte 3D</h1>
+                    <span>Creatividad en tercera dimensión</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Catálogo</a></li>
+                    <li><a href="#contacto">Cotizar</a></li>
+                    <li><a href="https://www.instagram.com/impresionarte3d.tm" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i> Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero fade-in-up">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge"><i class="fas fa-cube"></i> Especialistas en impresión 3D</div>
+                    <h1>Diseños que cobran <br>vida en 3D</h1>
+                    <p>Prototipos, figuras personalizadas, piezas funcionales y mucho más. Transformamos tus ideas en objetos reales con calidad profesional.</p>
+                    
+                    <div class="trust-badge fade-in-up">
+                        <i class="fas fa-check-circle" style="color:#25d366; font-size: 1.2rem;"></i> 
+                        <span>Calidad Premium garantizada: Imprimimos con <strong>tecnología Bambu Lab</strong></span>
+                    </div>
+                    <br>
+                    <a href="#contacto" class="btn-ig" style="background:#1d7e6b; margin-top: 8px; padding: 12px 25px;">Cotizar Proyecto Especial</a>
+                </div>
+                <div class="hero-image"></div>
+            </div>
+        </section>
+
+        <section id="servicios" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Nuestras Especialidades</h2>
+                <p class="section-sub fade-in-up">Diseño y fabricación digital para proyectos personalizados, regalería y piezas únicas.</p>
+                <div class="cards">
+                    
+                    <div class="card fade-in-up" data-category="mates">
+                        <div class="card-image-top slideshow-container">
+                            <img src="IMG-20260214-WA0003.jpg" alt="Mates de Fútbol">
+                            <img src="chopp_mates.png" alt="Mates Personalizados">
+                            <img src="mates.png" alt="Diseños de Mates">
+                            <img src="IMG-20251020-WA0067.jpeg" alt="Mates Premium">
+                            <img src="IMG-20251023-WA0043.jpeg" alt="Mates Cine">
+                        </div>
+                        <div class="card-content">
+                            <h3>Chopp y Mates</h3>
+                            <p>Diseños personalizados inspirados en el cine, deportes y cultura pop. Materiales resistentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-up" data-category="llaveros">
+                        <div class="card-image-top slideshow-container">
+                            <img src="Llaveros.png" alt="Llaveros 3D Personalizados">
+                            <img src="IMG_20260423_203856934_HDR.jpg" alt="Llaveros Detalle">
+                            <img src="IMG_20260423_203937099_HDR.jpg" alt="Llaveros Color">
+                            <img src="IMG-20241202-WA0044.jpeg" alt="Llaveros Escala">
+                            <img src="IMG-20250420-WA0047.jpeg" alt="Llaveros Logos">
+                        </div>
+                        <div class="card-content">
+                            <h3>Llaveros</h3>
+                            <p>Diseños exclusivos a escala, logos corporativos o escudos de clubes. Detalle máximo.</p>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-up" data-category="deco">
+                        <div class="card-image-top slideshow-container">
+                            <img src="20260405_143252.jpg" alt="Decoración de Eventos 1">
+                            <img src="IMG-20240703-WA0922.jpg" alt="Decoración de Eventos 2">
+                            <img src="deco.png" alt="Decoración de Eventos 3">
+                            <img src="IMG-20241001-WA0011.jpeg" alt="Decoración de Eventos 4">
+                            <img src="IMG-20250909-WA0041.jpeg" alt="Decoración de Eventos 5">
+                        </div>
+                        <div class="card-content">
+                            <h3>Eventos & Deco</h3>
+                            <p>Toppers para tortas y souvenirs que salen de lo convencional para darle identidad a tu fiesta.</p>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-up" data-category="didactico">
+                        <div class="card-image-top slideshow-container">
+                            <img src="IMG_20251014_104932029_HDR.jpg" alt="Material Didáctico 1">
+                            <img src="IMG_20251208_133407099_HDR.jpg" alt="Material Didáctico 2">
+                            <img src="IMG_20251208_133413933_HDR.jpg" alt="Material Didáctico 3">
+                            <img src="IMG_20260406_110915430_HDR.PNG" alt="Material Didáctico 4">
+                            <img src="IMG_20260420_110218881_HDR.PNG" alt="Material Didáctico 5">
+                        </div>
+                        <div class="card-content">
+                            <h3>Material Didáctico</h3>
+                            <p>Piezas de apoyo escolar, modelos anatómicos y herramientas diseñadas para el aprendizaje.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container fade-in-up" id="contacto">
+            <div class="contact-section">
+                <div class="hero-grid">
+                    <div class="contact-info" style="flex: 1;">
+                        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Hagamos realidad tu idea</h2>
+                        <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px;">Completá el formulario y te enviaremos un presupuesto detallado directamente a tu WhatsApp. Respondemos rápido.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 10px;"><i class="fab fa-instagram"></i> <strong>@impresionarte3d.tm</strong></p>
+                        <p style="font-size: 1.1rem;"><i class="fas fa-clock"></i> Tiempo de producción: 1 a 2 semanas.</p>
+                    </div>
+                    
+                    <div style="flex: 1;">
+                        <form class="form-whatsapp" id="form-pedidos">
+                            <h3 style="margin-bottom: 20px; color: #1d7e6b; text-align: center;">Cotización Rápida</h3>
+                            
+                            <input type="text" id="wsp-nombre" placeholder="Tu Nombre completo" required>
+                            
+                            <select id="wsp-servicio" required>
+                                <option value="">¿Qué necesitás realizar?</option>
+                                <option value="Chopp y Mates personalizados">Chopp y Mates personalizados</option>
+                                <option value="Llaveros personalizados">Llaveros personalizados</option>
+                                <option value="Eventos & Deco">Eventos & Deco</option>
+                                <option value="Material didáctico">Material didáctico</option>
+                                <option value="Otro proyecto a medida">Otro proyecto a medida</option>
+                            </select>
+
+                            <select id="wsp-envio" required>
+                                <option value="">¿Cómo preferís la entrega?</option>
+                                <option value="Retiro por Temperley">Retiro por Temperley</option>
+                                <option value="Envío a domicilio">Envío a domicilio (A coordinar)</option>
+                            </select>
+                            
+                            <textarea id="wsp-detalle" rows="4" placeholder="Contanos medidas, colores o si ya tenés el diseño..." required></textarea>
+                            
+                            <button type="submit" class="btn-wsp"><i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Enviar por WhatsApp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Impresionarte 3D | Fabricado con precisión mediante tecnología Bambu Lab.</p>
+        </div>
+    </footer>
+
+    <!-- Ventana Modal de Galería -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle">Galería</h2>
+            </div>
+            <div id="galleryGrid" class="gallery-grid">
+                <!-- Las imágenes se inyectan acá con JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/5491159967951?text=Hola%20Impresionarte%203D!%20%F0%9F%91%8B%20Vengo%20desde%20la%20web%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta." class="wsp-float fade-in-up" target="_blank" title="Contactanos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.getElementById('form-pedidos').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('wsp-nombre').value;
+            const servicio = document.getElementById('wsp-servicio').value;
+            const envio = document.getElementById('wsp-envio').value;
+            const detalle = document.getElementById('wsp-detalle').value;
+
+            let mensaje = `Hola Impresionarte 3D! 👋%0A%0A`;
+            mensaje += `Soy *${nombre}*. Les escribo desde la web para cotizar:%0A%0A`;
+            mensaje += `*Producto:* ${servicio}%0A`;
+            mensaje += `*Entrega:* ${envio}%0A`;
+            mensaje += `*Detalle:* ${detalle}%0A%0A`;
+            mensaje += `Aguardo respuesta. ¡Gracias!`;
+
+            // ¡REEMPLAZÁ ESTE NÚMERO POR EL TUYO! (Ej: 5491133445566)
+            const numeroDestino = "5491159967951";
+
+            const url = `https://wa.me/${numeroDestino}?text=${mensaje}`;
+            window.open(url, '_blank');
+        });
+
+        // Animaciones al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in-up');
+            elementsToAnimate.forEach(el => observer.observe(el));
+        });
+
+        // --- LÓGICA DE LA GALERÍA MODAL ---
+        
+        // Base de datos de fotos (Clasificadas por categoría)
+        const galleryData = {
+            'mates': [
+                'chopp_mates.png', 'Screenshot_20260427-101443_PicCollage.jpg', 'mates.png', 
+                'IMG-20260214-WA0003.jpg', 'IMG-20251020-WA0067.jpeg', 'IMG-20251023-WA0043.jpeg',
+                'IMG-20251216-WA0027.jpeg'
+            ],
+            'llaveros': [
+                'Llaveros.png', 'Llaveros-removebg-preview.png', 'IMG_20260407_003335656_HDR.jpg', 
+                'IMG_20260423_203856934_HDR.jpg', 'IMG_20260423_203937099_HDR.jpg', 'IMG_20260423_203946361_HDR.jpg',
+                'IMG-20241202-WA0044.jpeg', 'IMG-20250420-WA0047.jpeg'
+            ],
+            'deco': [
+                'deco.png', '20260405_143252.jpg', 'IMG-20240703-WA0922.jpg', 
+                'IMG-20240820-WA0010.jpeg', 'IMG-20240823-WA0003.jpeg', 'IMG-20240903-WA0021.jpeg',
+                'IMG-20241001-WA0011.jpeg', 'IMG-20250909-WA0041.jpeg', 'IMG-20251220-WA0004.jpeg'
+            ],
+            'didactico': [
+                'didactico.png', 'IMG_20251014_104932029_HDR.jpg', 'IMG_20251208_133407099_HDR.jpg', 
+                'IMG_20251208_133413933_HDR.jpg', 'IMG_20260406_110915430_HDR.PNG', 'IMG_20260420_110218881_HDR.PNG',
+                'didactico_bg_ premium.png', 'Screenshot_20260224-195734_Bambu Handy.png', 'Screenshot_20260210-151149_Bambu Handy.png'
+            ]
+        };
+
+        const modal = document.getElementById('galleryModal');
+        const closeBtn = document.querySelector('.close-btn');
+        const grid = document.getElementById('galleryGrid');
+        const modalTitle = document.getElementById('modalTitle');
+
+        // Abrir modal al hacer clic en tarjeta
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                const category = card.getAttribute('data-category');
+                const title = card.querySelector('h3').innerText;
+                
+                modalTitle.innerText = `Galería: ${title}`;
+                grid.innerHTML = ''; // Limpiar galería anterior
+
+                // Cargar imágenes de la categoría
+                if(galleryData[category]) {
+                    galleryData[category].forEach(imgSrc => {
+                        const img = document.createElement('img');
+                        img.src = imgSrc;
+                        img.className = 'gallery-item';
+                        img.alt = `Trabajo de ${title}`;
+                        grid.appendChild(img);
+                    });
+                }
+
+                // Mostrar modal
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('show'), 10);
+                document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
+            });
+        });
+
+        // Función para cerrar modal
+        const closeModal = () => {
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 300);
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+    </script>
+</body>
+</html>
