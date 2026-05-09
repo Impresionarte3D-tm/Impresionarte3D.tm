@@ -85,6 +85,7 @@
         .card {
             background: white; border-radius: 28px;
             box-shadow: 0 12px 30px rgba(0,0,0,0.05); flex: 1 1 280px;
+            max-width: 350px; /* Evita que la tarjeta se estire demasiado */
             transition: all 0.25s ease; text-align: center; border: 1px solid #ecf3f9;
             overflow: hidden; /* Importante para que la foto no se salga */
         }
@@ -378,6 +379,27 @@
         }
         .gallery-item:hover { transform: scale(1.05); }
 
+        /* LIGHTBOX PARA VER FOTO ORIGINAL */
+        .lightbox {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(0,0,0,0.95);
+            align-items: center; justify-content: center; opacity: 0;
+            transition: opacity 0.3s ease; backdrop-filter: blur(5px);
+        }
+        .lightbox.show { opacity: 1; }
+        .lightbox img {
+            max-width: 90%; max-height: 90vh; border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transform: scale(0.9); transition: transform 0.3s ease;
+        }
+        .lightbox.show img { transform: scale(1); }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 30px;
+            color: #fff; font-size: 40px; font-weight: bold; cursor: pointer;
+            transition: 0.2s;
+        }
+        .lightbox-close:hover { color: #d62976; }
+
         /* Hacer las tarjetas cliqueables */
         .card { cursor: pointer; }
 
@@ -503,11 +525,11 @@
                     
                     <div class="card fade-in-up" data-category="mates">
                         <div class="card-image-top slideshow-container">
-                            <img src="IMG-20260214-WA0003.jpg" alt="Mates de Fútbol">
-                            <img src="chopp_mates.png" alt="Mates Personalizados">
-                            <img src="mates.png" alt="Diseños de Mates">
-                            <img src="IMG-20251020-WA0067.jpeg" alt="Mates Premium">
-                            <img src="IMG-20251023-WA0043.jpeg" alt="Mates Cine">
+                            <img src="Chopp y Mates/chopp_mates.png" alt="Chopp Personalizado">
+                            <img src="Chopp y Mates/IMG-20260214-WA0003.jpg" alt="Mate de Fútbol">
+                            <img src="Chopp y Mates/mates.png" alt="Colección de Mates">
+                            <img src="Chopp y Mates/20260411_155054.jpg" alt="Mate Premium">
+                            <img src="Chopp y Mates/20260423_075816.jpg" alt="Mate Diseño">
                         </div>
                         <div class="card-content">
                             <h3>Chopp y Mates</h3>
@@ -517,11 +539,11 @@
 
                     <div class="card fade-in-up" data-category="llaveros">
                         <div class="card-image-top slideshow-container">
-                            <img src="Llaveros.png" alt="Llaveros 3D Personalizados">
-                            <img src="IMG_20260423_203856934_HDR.jpg" alt="Llaveros Detalle">
-                            <img src="IMG_20260423_203937099_HDR.jpg" alt="Llaveros Color">
-                            <img src="IMG-20241202-WA0044.jpeg" alt="Llaveros Escala">
-                            <img src="IMG-20250420-WA0047.jpeg" alt="Llaveros Logos">
+                            <img src="Llaveros/Llaveros - copia.png" alt="Llaveros Personalizados">
+                            <img src="Llaveros/IMG_20240814_114333599.jpg" alt="Llavero Detalle">
+                            <img src="Llaveros/IMG_20240801_194925396.jpg" alt="Llavero Color">
+                            <img src="Llaveros/20240612_155308.jpg" alt="Llavero Escala">
+                            <img src="Llaveros/IMG-20240823-WA0003.jpeg" alt="Llavero Logo">
                         </div>
                         <div class="card-content">
                             <h3>Llaveros</h3>
@@ -531,11 +553,11 @@
 
                     <div class="card fade-in-up" data-category="deco">
                         <div class="card-image-top slideshow-container">
-                            <img src="20260405_143252.jpg" alt="Decoración de Eventos 1">
-                            <img src="IMG-20240703-WA0922.jpg" alt="Decoración de Eventos 2">
-                            <img src="deco.png" alt="Decoración de Eventos 3">
-                            <img src="IMG-20241001-WA0011.jpeg" alt="Decoración de Eventos 4">
-                            <img src="IMG-20250909-WA0041.jpeg" alt="Decoración de Eventos 5">
+                            <img src="Eventos y deco/20260405_143252.jpg" alt="Topper de Torta">
+                            <img src="Eventos y deco/IMG-20240703-WA0922.jpg" alt="Decoración Evento">
+                            <img src="Eventos y deco/IMG_20260305_113854946_HDR.jpg" alt="Souvenir 3D">
+                            <img src="Eventos y deco/1772659304195.png" alt="Detalle Deco">
+                            <img src="Eventos y deco/IMG-20251216-WA0027.jpeg" alt="Pieza Decorativa">
                         </div>
                         <div class="card-content">
                             <h3>Eventos & Deco</h3>
@@ -545,15 +567,29 @@
 
                     <div class="card fade-in-up" data-category="didactico">
                         <div class="card-image-top slideshow-container">
-                            <img src="IMG_20251014_104932029_HDR.jpg" alt="Material Didáctico 1">
-                            <img src="IMG_20251208_133407099_HDR.jpg" alt="Material Didáctico 2">
-                            <img src="IMG_20251208_133413933_HDR.jpg" alt="Material Didáctico 3">
-                            <img src="IMG_20260406_110915430_HDR.PNG" alt="Material Didáctico 4">
-                            <img src="IMG_20260420_110218881_HDR.PNG" alt="Material Didáctico 5">
+                            <img src="Material Didactico/IMG_20250825_121019274_HDR.jpg" alt="Material Didáctico 1">
+                            <img src="Material Didactico/IMG_20251009_112842509.jpg" alt="Material Didáctico 2">
+                            <img src="Material Didactico/IMG_20251009_181620826_HDR.jpg" alt="Material Didáctico 3">
+                            <img src="Material Didactico/IMG_20251014_104932029_HDR.jpg" alt="Material Didáctico 4">
+                            <img src="Material Didactico/IMG_20260406_110915430_HDR - copia.jpg" alt="Material Didáctico 5">
                         </div>
                         <div class="card-content">
                             <h3>Material Didáctico</h3>
                             <p>Piezas de apoyo escolar, modelos anatómicos y herramientas diseñadas para el aprendizaje.</p>
+                        </div>
+                    </div>
+
+                    <div class="card fade-in-up" data-category="figuras">
+                        <div class="card-image-top slideshow-container">
+                            <img src="Figuras y Muñecos/20250513_141513.jpg" alt="Figura 3D 1">
+                            <img src="Figuras y Muñecos/20250513_141528.jpg" alt="Figura 3D 2">
+                            <img src="Figuras y Muñecos/20250718_095033.jpg" alt="Figura 3D 3">
+                            <img src="Figuras y Muñecos/IMG-20240820-WA0010.jpg" alt="Figura 3D 4">
+                            <img src="Figuras y Muñecos/IMG-20240820-WA0012.jpg" alt="Figura 3D 5">
+                        </div>
+                        <div class="card-content">
+                            <h3>Figuras y Muñecos</h3>
+                            <p>Figuras de colección, personajes a medida y miniaturas con excelente nivel de detalle.</p>
                         </div>
                     </div>
                 </div>
@@ -582,6 +618,7 @@
                                 <option value="Llaveros personalizados">Llaveros personalizados</option>
                                 <option value="Eventos & Deco">Eventos & Deco</option>
                                 <option value="Material didáctico">Material didáctico</option>
+                                <option value="Figuras y Muñecos">Figuras y Muñecos</option>
                                 <option value="Otro proyecto a medida">Otro proyecto a medida</option>
                             </select>
 
@@ -606,6 +643,12 @@
             <p>© 2026 Impresionarte 3D | Fabricado con precisión mediante tecnología Bambu Lab.</p>
         </div>
     </footer>
+
+    <!-- Lightbox para foto ampliada -->
+    <div id="lightboxModal" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" src="" alt="Foto ampliada">
+    </div>
 
     <!-- Ventana Modal de Galería -->
     <div id="galleryModal" class="modal">
@@ -671,27 +714,22 @@
 
         // --- LÓGICA DE LA GALERÍA MODAL ---
         
-        // Base de datos de fotos (Clasificadas por categoría)
+        // Base de datos de fotos (Cargadas desde carpetas organizadas)
         const galleryData = {
             'mates': [
-                'chopp_mates.png', 'Screenshot_20260427-101443_PicCollage.jpg', 'mates.png', 
-                'IMG-20260214-WA0003.jpg', 'IMG-20251020-WA0067.jpeg', 'IMG-20251023-WA0043.jpeg',
-                'IMG-20251216-WA0027.jpeg'
+                "Chopp y Mates/1776252616698.png", "Chopp y Mates/20250901_223446.jpg", "Chopp y Mates/20250907_150411.jpg", "Chopp y Mates/20250916_143550.jpg", "Chopp y Mates/20250916_144012.jpg", "Chopp y Mates/20250916_144044.jpg", "Chopp y Mates/20250918_094652.jpg", "Chopp y Mates/20251104_214737.jpg", "Chopp y Mates/20251113_092739.jpg", "Chopp y Mates/20251126_212209.jpg", "Chopp y Mates/20251226_205437.jpg", "Chopp y Mates/20260318_114446.jpg", "Chopp y Mates/20260319_182833.jpg", "Chopp y Mates/20260319_182836.jpg", "Chopp y Mates/20260319_182843.jpg", "Chopp y Mates/20260322_083459.jpg", "Chopp y Mates/20260322_083506.jpg", "Chopp y Mates/20260406_215414.jpg", "Chopp y Mates/20260411_155036.jpg", "Chopp y Mates/20260411_155046.jpg", "Chopp y Mates/20260411_155054.jpg", "Chopp y Mates/20260414_212309.jpg", "Chopp y Mates/20260421_201512.jpg", "Chopp y Mates/20260423_075806.jpg", "Chopp y Mates/20260423_075816.jpg", "Chopp y Mates/20260430_231959.jpg", "Chopp y Mates/IMG-20250718-WA0036.jpg", "Chopp y Mates/IMG-20250725-WA0049.jpg", "Chopp y Mates/IMG-20250726-WA0036.jpg", "Chopp y Mates/IMG-20250727-WA0000.jpg", "Chopp y Mates/IMG-20250901-WA0044.jpeg", "Chopp y Mates/IMG-20250907-WA0060.jpg", "Chopp y Mates/IMG-20250907-WA0079.jpeg", "Chopp y Mates/IMG-20250909-WA0041.jpeg", "Chopp y Mates/IMG-20251023-WA0043.jpeg", "Chopp y Mates/IMG-20251025-WA0068.jpg", "Chopp y Mates/IMG-20251220-WA0004.jpeg", "Chopp y Mates/IMG-20260103-WA0023.jpg", "Chopp y Mates/IMG-20260214-WA0003.jpg", "Chopp y Mates/IMG-20260214-WA0008.jpg", "Chopp y Mates/IMG-20260224-WA0010.jpg", "Chopp y Mates/IMG-20260228-WA0014.jpg", "Chopp y Mates/IMG-20260318-WA0058.jpeg", "Chopp y Mates/IMG-20260423-WA0012.jpeg", "Chopp y Mates/IMG_20250909_210841884_HDR.jpg", "Chopp y Mates/IMG_20250909_210902296_HDR.jpg", "Chopp y Mates/IMG_20260103_220346875_HDR.jpg", "Chopp y Mates/IMG_20260103_220354639_HDR.jpg", "Chopp y Mates/IMG_20260205_162221375_HDR.jpg", "Chopp y Mates/Screenshot_20251111-223955_WhatsApp.png", "Chopp y Mates/Screenshot_20251226_211810_Google.jpg", "Chopp y Mates/Screenshot_20260103-202514_WhatsApp.png", "Chopp y Mates/Screenshot_20260427-101443_PicCollage.jpg", "Chopp y Mates/chatgpt-1757631137942.jpg", "Chopp y Mates/chopp_mates.png", "Chopp y Mates/file_00000000d99061f7948f9d47f7f9d1b4.png", "Chopp y Mates/file_00000000efcc61f890557fd50051f105.png", "Chopp y Mates/mates.png"
             ],
             'llaveros': [
-                'Llaveros.png', 'Llaveros-removebg-preview.png', 'IMG_20260407_003335656_HDR.jpg', 
-                'IMG_20260423_203856934_HDR.jpg', 'IMG_20260423_203937099_HDR.jpg', 'IMG_20260423_203946361_HDR.jpg',
-                'IMG-20241202-WA0044.jpeg', 'IMG-20250420-WA0047.jpeg'
+                "Llaveros/20240612_155308.jpg", "Llaveros/20240616_195835.jpg", "Llaveros/20241116_112346 - copia.jpg", "Llaveros/20250602_141651 - copia.jpg", "Llaveros/20250804_112432 - copia.jpg", "Llaveros/20251210_183825 - copia.jpg", "Llaveros/20260329_232240 - copia.jpg", "Llaveros/IMG-20240706-WA0196 - copia.jpg", "Llaveros/IMG-20240723-WA0034 - copia.jpg", "Llaveros/IMG-20240809-WA0009 - copia.jpg", "Llaveros/IMG-20240812-WA0015 - copia.jpg", "Llaveros/IMG-20240823-WA0003.jpeg", "Llaveros/IMG-20240906-WA0010 - copia.jpg", "Llaveros/IMG-20240906-WA0010.jpg", "Llaveros/IMG-20240920-WA0063 - copia.jpg", "Llaveros/IMG-20241002-WA0090 - copia.jpg", "Llaveros/IMG-20241202-WA0034 - copia.jpg", "Llaveros/IMG-20241202-WA0044 - copia.jpeg", "Llaveros/IMG-20250128-WA0031 - copia.jpg", "Llaveros/IMG-20250420-WA0047 - copia.jpeg", "Llaveros/IMG-20250807-WA0018 - copia.jpg", "Llaveros/IMG_20240801_194925396.jpg", "Llaveros/IMG_20240814_114240628_HDR.jpg", "Llaveros/IMG_20240814_114254800.jpg", "Llaveros/IMG_20240814_114333599.jpg", "Llaveros/IMG_20241031_125350676_HDR - copia.jpg", "Llaveros/IMG_20250327_234159861_HDR - copia.jpg", "Llaveros/IMG_20250808_201342545_HDR - copia.jpg", "Llaveros/IMG_20250808_201719853_HDR - copia.jpg", "Llaveros/IMG_20250809_190030479_HDR - copia.jpg", "Llaveros/IMG_20250809_190042527_HDR - copia.jpg", "Llaveros/IMG_20250809_235401454_HDR - copia.jpg", "Llaveros/IMG_20250810_002240258_HDR - copia.jpg", "Llaveros/IMG_20251103_210817533_HDR - copia.jpg", "Llaveros/IMG_20251103_210929742_HDR - copia.jpg", "Llaveros/IMG_20251103_211030658_HDR - copia.jpg", "Llaveros/IMG_20251103_211126737_HDR - copia.jpg", "Llaveros/IMG_20251103_211312977_HDR - copia.jpg", "Llaveros/IMG_20251216_180059660_HDR - copia.jpg", "Llaveros/IMG_20251218_130812424_HDR - copia.jpg", "Llaveros/IMG_20260407_003335656_HDR - copia.jpg", "Llaveros/IMG_20260423_203856934_HDR - copia.jpg", "Llaveros/Llaveros - copia.png", "Llaveros/Screenshot_20240812-183356.png", "Llaveros/Screenshot_20241127-215416 - copia.png"
             ],
             'deco': [
-                'deco.png', '20260405_143252.jpg', 'IMG-20240703-WA0922.jpg', 
-                'IMG-20240820-WA0010.jpeg', 'IMG-20240823-WA0003.jpeg', 'IMG-20240903-WA0021.jpeg',
-                'IMG-20241001-WA0011.jpeg', 'IMG-20250909-WA0041.jpeg', 'IMG-20251220-WA0004.jpeg'
+                "Eventos y deco/1772659304195.png", "Eventos y deco/1772659313192.png", "Eventos y deco/20240613_154720.jpg", "Eventos y deco/20240628_210201.jpg", "Eventos y deco/20240703_204221~2.jpg", "Eventos y deco/20240706_122607.jpg", "Eventos y deco/20240708_233607.jpg", "Eventos y deco/20250420_231054.jpg", "Eventos y deco/20260405_143252.jpg", "Eventos y deco/IMG-20240703-WA0922.jpg", "Eventos y deco/IMG-20250212-WA0039.jpg", "Eventos y deco/IMG-20250212-WA0040.jpg", "Eventos y deco/IMG-20250212-WA0041.jpg", "Eventos y deco/IMG-20251216-WA0027.jpeg", "Eventos y deco/IMG-20260329-WA0076.jpg", "Eventos y deco/IMG_20251216_180059660_HDR.jpg", "Eventos y deco/IMG_20251216_181353603_HDR.jpg", "Eventos y deco/IMG_20251221_221647003_HDR.jpg", "Eventos y deco/IMG_20251221_221702034_HDR.jpg", "Eventos y deco/IMG_20260305_113854946_HDR.jpg", "Eventos y deco/original_0c61752d-6fc6-44d8-82f1-ab9fc4cda5b2_IMG_20251031_120730146_HDR.jpg", "Eventos y deco/original_f27a87c6-b6cb-4d1b-9d1c-8e1dd43b2347_IMG_20251031_120905344_HDR.jpg"
             ],
             'didactico': [
-                'didactico.png', 'IMG_20251014_104932029_HDR.jpg', 'IMG_20251208_133407099_HDR.jpg', 
-                'IMG_20251208_133413933_HDR.jpg', 'IMG_20260406_110915430_HDR.PNG', 'IMG_20260420_110218881_HDR.PNG',
-                'didactico_bg_ premium.png', 'Screenshot_20260224-195734_Bambu Handy.png', 'Screenshot_20260210-151149_Bambu Handy.png'
+                "Material Didactico/IMG-20251019-WA0039 - copia.jpg", "Material Didactico/IMG-20251019-WA0041 - copia.jpg", "Material Didactico/IMG_20250825_121019274_HDR.jpg", "Material Didactico/IMG_20250826_221804141_HDR.jpg", "Material Didactico/IMG_20250826_221835758_HDR.jpg", "Material Didactico/IMG_20250826_221849991_HDR.jpg", "Material Didactico/IMG_20250826_222021534_HDR.jpg", "Material Didactico/IMG_20250921_094530961.jpg", "Material Didactico/IMG_20251009_112818977.jpg", "Material Didactico/IMG_20251009_112826107.jpg", "Material Didactico/IMG_20251009_112842509.jpg", "Material Didactico/IMG_20251009_181545568_HDR.jpg", "Material Didactico/IMG_20251009_181609083_HDR.jpg", "Material Didactico/IMG_20251009_181613279_HDR.jpg", "Material Didactico/IMG_20251009_181620826_HDR.jpg", "Material Didactico/IMG_20251013_000440552_HDR.jpg", "Material Didactico/IMG_20251014_104932029_HDR.jpg", "Material Didactico/IMG_20251014_235055358_HDR - copia.jpg", "Material Didactico/IMG_20251014_235055358_HDR.jpg", "Material Didactico/IMG_20251014_235316094_HDR - copia.jpg", "Material Didactico/IMG_20251208_133407099_HDR - copia.jpg", "Material Didactico/IMG_20251208_133413933_HDR - copia.jpg", "Material Didactico/IMG_20260406_110915430_HDR - copia.jpg", "Material Didactico/IMG_20260420_110218881_HDR - copia.jpg"
+            ],
+            'figuras': [
+                "Figuras y Muñecos/20250513_141513.jpg", "Figuras y Muñecos/20250513_141528.jpg", "Figuras y Muñecos/20250718_095033.jpg", "Figuras y Muñecos/IMG-20240820-WA0010.jpg", "Figuras y Muñecos/IMG-20240820-WA0012.jpg", "Figuras y Muñecos/IMG-20251020-WA0067.jpeg", "Figuras y Muñecos/IMG_20250712_235115779_HDR.jpg", "Figuras y Muñecos/IMG_20260103_220414792_HDR.jpg", "Figuras y Muñecos/Screenshot_20250715_232200_Instagram.jpg", "Figuras y Muñecos/Screenshot_20260210-151149_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260210-151311_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-191807_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-192037_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-192137_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-192239_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-194338_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-194436_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-195528_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-195734_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-200045_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-200212_Bambu Handy.png", "Figuras y Muñecos/Screenshot_20260224-200348_Bambu Handy.png"
             ]
         };
 
@@ -716,6 +754,16 @@
                         img.src = imgSrc;
                         img.className = 'gallery-item';
                         img.alt = `Trabajo de ${title}`;
+                        
+                        // Evento para abrir el Lightbox al hacer clic en la miniatura
+                        img.addEventListener('click', () => {
+                            const lightbox = document.getElementById('lightboxModal');
+                            const lightboxImg = document.getElementById('lightboxImg');
+                            lightboxImg.src = imgSrc;
+                            lightbox.style.display = 'flex';
+                            setTimeout(() => lightbox.classList.add('show'), 10);
+                        });
+                        
                         grid.appendChild(img);
                     });
                 }
@@ -737,6 +785,21 @@
         closeBtn.addEventListener('click', closeModal);
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
+        });
+
+        // --- Lógica del Lightbox ---
+        const lightbox = document.getElementById('lightboxModal');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        
+        const closeLightbox = () => {
+            lightbox.classList.remove('show');
+            setTimeout(() => lightbox.style.display = 'none', 300);
+        };
+        
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            // Cerrar si se hace clic fuera de la imagen (en el fondo oscuro)
+            if (e.target === lightbox) closeLightbox();
         });
 
     </script>
