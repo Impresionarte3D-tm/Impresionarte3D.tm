@@ -81,14 +81,29 @@
 
         .cards { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; }
         
+        /* BARRA DE CONFIANZA */
+        .trust-bar-container { background-color: #fff; padding: 24px 0; border-bottom: 1px solid #ecf3f9; }
+        .trust-bar { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; }
+        .trust-item { display: flex; align-items: center; gap: 12px; font-weight: 600; color: #2c3e4e; }
+        .trust-item i { font-size: 1.8rem; color: #1d7e6b; }
+        @media (max-width: 760px) { .trust-bar { flex-direction: column; gap: 16px; align-items: flex-start; margin-left: 15%; } }
+        
         /* ESTILOS DE LAS TARJETAS (Ajustado para fotos) */
         .card {
-            background: white; border-radius: 28px;
+            background: white; border-radius: 28px; position: relative;
             box-shadow: 0 12px 30px rgba(0,0,0,0.05); flex: 1 1 280px;
             max-width: 350px; /* Evita que la tarjeta se estire demasiado */
             transition: all 0.25s ease; text-align: center; border: 1px solid #ecf3f9;
             overflow: hidden; /* Importante para que la foto no se salga */
         }
+        .card-badge {
+            position: absolute; top: 12px; left: 12px; z-index: 10;
+            background: linear-gradient(135deg, #ff6b6b, #d62976); color: white;
+            padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+            box-shadow: 0 4px 10px rgba(214, 41, 118, 0.4);
+            letter-spacing: 0.5px; text-transform: uppercase;
+        }
+        .card-badge.blue { background: linear-gradient(135deg, #4da8da, #1d7e6b); box-shadow: 0 4px 10px rgba(29, 126, 107, 0.4); }
         .card:hover { transform: translateY(-6px); box-shadow: 0 24px 40px rgba(0,0,0,0.1); }
         
         /* Contenedor de la foto en la tarjeta */
@@ -492,6 +507,7 @@
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Catálogo</a></li>
                     <li><a href="#contacto">Cotizar</a></li>
+                    <li><a href="calculadora.html" class="btn-ig" style="background: #e0f2e9; color: #1b6b5e !important;"><i class="fas fa-calculator"></i> Calculadora</a></li>
                     <li><a href="https://www.instagram.com/impresionarte3d.tm" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i> Instagram</a></li>
                 </ul>
             </div>
@@ -511,11 +527,33 @@
                         <span>Calidad Premium garantizada: Imprimimos con <strong>tecnología Bambu Lab</strong></span>
                     </div>
                     <br>
-                    <a href="#contacto" class="btn-ig" style="background:#1d7e6b; margin-top: 8px; padding: 12px 25px;">Cotizar Proyecto Especial</a>
+                    <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
+                        <a href="#contacto" class="btn-ig" style="background:#1d7e6b; padding: 12px 25px;">Cotizar Proyecto Especial</a>
+                        <a href="calculadora.html" class="btn-ig" style="background:#fff; color:#1d7e6b !important; border: 2px solid #1d7e6b; padding: 10px 25px;"><i class="fas fa-calculator"></i> Usar Calculadora de Costos</a>
+                    </div>
                 </div>
                 <div class="hero-image"></div>
             </div>
         </section>
+
+        <div class="trust-bar-container">
+            <div class="container">
+                <div class="trust-bar fade-in-up">
+                    <div class="trust-item">
+                        <i class="fas fa-truck-fast"></i>
+                        <span>Envíos a todo el país</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Múltiples medios de pago</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-shield-halved"></i>
+                        <span>Calidad Premium garantizada</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section id="servicios" class="section">
             <div class="container">
@@ -524,6 +562,7 @@
                 <div class="cards">
                     
                     <div class="card fade-in-up" data-category="mates">
+                        <div class="card-badge">🔥 Más Vendido</div>
                         <div class="card-image-top slideshow-container">
                             <img src="Chopp y Mates/chopp_mates.png" alt="Chopp Personalizado">
                             <img src="Chopp y Mates/IMG-20260214-WA0003.jpg" alt="Mate de Fútbol">
@@ -538,6 +577,7 @@
                     </div>
 
                     <div class="card fade-in-up" data-category="llaveros">
+                        <div class="card-badge blue">🎁 Ideal Souvenirs</div>
                         <div class="card-image-top slideshow-container">
                             <img src="Llaveros/Llaveros - copia.png" alt="Llaveros Personalizados">
                             <img src="Llaveros/IMG_20240814_114333599.jpg" alt="Llavero Detalle">
@@ -552,6 +592,7 @@
                     </div>
 
                     <div class="card fade-in-up" data-category="deco">
+                        <div class="card-badge blue">✨ Diseños a Medida</div>
                         <div class="card-image-top slideshow-container">
                             <img src="Eventos y deco/20260405_143252.jpg" alt="Topper de Torta">
                             <img src="Eventos y deco/IMG-20240703-WA0922.jpg" alt="Decoración Evento">
@@ -591,6 +632,36 @@
                             <h3>Figuras y Muñecos</h3>
                             <p>Figuras de colección, personajes a medida y miniaturas con excelente nivel de detalle.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="section" style="background-color: #f9fafc;">
+            <div class="container">
+                <h2 class="section-title fade-in-up">Lo que dicen nuestros clientes</h2>
+                <p class="section-sub fade-in-up">Opiniones reales de quienes ya confiaron en la calidad de Impresionarte 3D.</p>
+                <div class="cards">
+                    <div class="card fade-in-up" style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                        <div style="color: #f1c40f; margin-bottom: 12px; font-size: 1.2rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"Excelente calidad y terminación. Pedí unos llaveros para mi empresa y quedaron espectaculares. Súper recomendados."</p>
+                        <h4 style="font-weight: 700; color: #1f2a3e;">- Juan Pérez</h4>
+                    </div>
+                    <div class="card fade-in-up" style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                        <div style="color: #f1c40f; margin-bottom: 12px; font-size: 1.2rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"El mate personalizado que me hicieron es una locura. Los detalles son increíbles y la entrega fue rapidísima. Impecable servicio."</p>
+                        <h4 style="font-weight: 700; color: #1f2a3e;">- María G.</h4>
+                    </div>
+                    <div class="card fade-in-up" style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                        <div style="color: #f1c40f; margin-bottom: 12px; font-size: 1.2rem;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"Compré unas figuras de colección y no puedo creer el nivel de detalle que tienen. ¡Ya estoy pensando en mi próximo pedido!"</p>
+                        <h4 style="font-weight: 700; color: #1f2a3e;">- Lucas M.</h4>
                     </div>
                 </div>
             </div>
