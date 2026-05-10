@@ -486,11 +486,135 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
         
-        @media (max-width: 760px) {
-            .navbar { flex-direction: column; }
-            .hero-content h1 { font-size: 2.4rem; }
-            .hero-grid { gap: 20px; }
-            .contact-section { padding: 30px; }
+        /* ===== MENÚ HAMBURGUESA ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            background: none;
+            border: none;
+            z-index: 200;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #1f2a3e;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* ===== RESPONSIVE MOBILE ===== */
+        @media (max-width: 768px) {
+
+            /* Navbar */
+            .navbar {
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                padding: 14px 0;
+                gap: 0;
+            }
+            .hamburger { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+                padding: 16px 24px 24px;
+                z-index: 150;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links li { border-bottom: 1px solid #f0f4f8; }
+            .nav-links li:last-child { border-bottom: none; }
+            .nav-links a {
+                display: block;
+                padding: 14px 0;
+                font-size: 1.05rem;
+            }
+            .nav-links .btn-ig {
+                margin-top: 10px;
+                justify-content: center;
+                border-radius: 12px;
+            }
+
+            /* Hero */
+            .hero { padding: 40px 0 30px; }
+            .hero-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .hero-content { flex: 1; text-align: center; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; max-width: 100%; }
+            .hero-badge { font-size: 0.8rem; }
+            .trust-badge { font-size: 0.85rem; text-align: left; }
+            .hero-content div[style] {
+                justify-content: center !important;
+            }
+            .hero-image { 
+                width: 100%; 
+                min-height: 200px; 
+                border-radius: 20px; 
+                flex: none;
+            }
+
+            /* Trust Bar */
+            .trust-bar {
+                flex-direction: column;
+                gap: 14px;
+                align-items: flex-start;
+                padding-left: 16px;
+            }
+
+            /* Secciones */
+            .section { padding: 48px 0; }
+            .section-title { font-size: 1.8rem; }
+            .section-sub { font-size: 0.95rem; margin-bottom: 32px; }
+
+            /* Cards */
+            .cards { gap: 20px; }
+            .card { flex: 1 1 100%; max-width: 100%; }
+            .card-image-top { height: 220px; }
+
+            /* Testimonios */
+            .card[style] { padding: 24px !important; }
+
+            /* Contacto */
+            .contact-section {
+                padding: 32px 20px;
+                border-radius: 24px;
+                margin-bottom: 24px;
+            }
+            .contact-section .hero-grid {
+                flex-direction: column;
+                gap: 28px;
+            }
+            .contact-section h2 { font-size: 1.8rem !important; }
+            .form-whatsapp { padding: 22px 18px; }
+
+            /* Footer */
+            footer { padding: 24px 0; font-size: 0.85rem; }
+
+            /* Botón flotante WhatsApp */
+            .wsp-float { bottom: 20px; right: 16px; width: 52px; height: 52px; font-size: 26px; }
+        }
+
+        /* Pantallas muy chicas (ej: iPhone SE) */
+        @media (max-width: 380px) {
+            .hero-content h1 { font-size: 1.7rem; }
+            .logo h1 { font-size: 1.4rem; }
+            .container { padding: 0 16px; }
         }
     </style>
 </head>
@@ -503,11 +627,15 @@
                     <h1>Impresionarte 3D</h1>
                     <span>Creatividad en tercera dimensión</span>
                 </div>
-                <ul class="nav-links">
+                <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Catálogo</a></li>
                     <li><a href="#contacto">Cotizar</a></li>
-
                     <li><a href="https://www.instagram.com/impresionarte3d.tm" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i> Instagram</a></li>
                 </ul>
             </div>
@@ -870,6 +998,23 @@
         lightbox.addEventListener('click', (e) => {
             // Cerrar si se hace clic fuera de la imagen (en el fondo oscuro)
             if (e.target === lightbox) closeLightbox();
+        });
+
+        // --- MENÚ HAMBURGUESA ---
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+
+        // Cerrar menú al hacer clic en cualquier enlace
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
         });
 
     </script>
