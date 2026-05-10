@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="es-AR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Impresionarte 3D | Impresión 3D de Alta Calidad en Temperley</title>
-    <meta name="description" content="Servicio de impresión 3D de alta calidad. Prototipos, figuras personalizadas, regalería (mates, chopps, llaveros), material didáctico y decoración para eventos. Entregas en Temperley y envíos.">
-    <meta name="keywords" content="impresión 3D, Temperley, zona sur, impresión 3D zona sur, mates 3D, llaveros personalizados, figuras 3D, Bambu Lab, regalos personalizados">
+    <meta name="description"
+        content="Servicio de impresión 3D de alta calidad. Prototipos, figuras personalizadas, regalería (mates, chopps, llaveros), material didáctico y decoración para eventos. Entregas en Temperley y envíos.">
+    <meta name="keywords"
+        content="impresión 3D, Temperley, zona sur, impresión 3D zona sur, mates 3D, llaveros personalizados, figuras 3D, Bambu Lab, regalos personalizados">
     <meta name="author" content="Impresionarte 3D">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -22,102 +30,251 @@
             scroll-behavior: smooth;
         }
 
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
         header {
             background-color: #fff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .navbar {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 18px 0; flex-wrap: wrap; gap: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .logo h1 {
-            font-size: 1.8rem; font-weight: 800;
+            font-size: 1.8rem;
+            font-weight: 800;
             background: linear-gradient(135deg, #2b3b4e, #1d7e6b);
-            -webkit-background-clip: text; color: transparent;
+            -webkit-background-clip: text;
+            color: transparent;
             letter-spacing: -0.02em;
         }
 
-        .logo span { font-size: 0.9rem; font-weight: 400; color: #5b6e8c; display: block; }
+        .logo span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #5b6e8c;
+            display: block;
+        }
 
-        .nav-links { display: flex; gap: 32px; list-style: none; }
-        .nav-links a { text-decoration: none; font-weight: 600; color: #2c3e4e; transition: 0.2s; }
-        .nav-links a:hover { color: #1d7e6b; }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e4e;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1d7e6b;
+        }
 
         .btn-ig {
-            background: #d62976; color: white !important; padding: 8px 20px;
-            border-radius: 40px; display: inline-flex; align-items: center;
-            gap: 10px; font-weight: 600; transition: 0.2s; text-decoration: none;
+            background: #d62976;
+            color: white !important;
+            padding: 8px 20px;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            transition: 0.2s;
+            text-decoration: none;
         }
-        .btn-ig:hover { background: #c41e5a; transform: scale(1.02); }
 
-        .hero { padding: 80px 0 60px; background: linear-gradient(145deg, #f9fafc 0%, #f0f4f8 100%); }
-        .hero-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
-        .hero-content { flex: 1.2; }
+        .btn-ig:hover {
+            background: #c41e5a;
+            transform: scale(1.02);
+        }
+
+        .hero {
+            padding: 80px 0 60px;
+            background: linear-gradient(145deg, #f9fafc 0%, #f0f4f8 100%);
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
 
         .hero-badge {
-            background: #e0f2e9; color: #1b6b5e; display: inline-block;
-            padding: 6px 14px; border-radius: 40px; font-size: 0.85rem;
-            font-weight: 600; margin-bottom: 24px;
+            background: #e0f2e9;
+            color: #1b6b5e;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
         }
 
-        .hero-content h1 { font-size: 3.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; color: #1f2a3e; }
-        .hero-content p { font-size: 1.2rem; color: #4a5568; margin-bottom: 32px; max-width: 550px; }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1f2a3e;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 32px;
+            max-width: 550px;
+        }
 
         .hero-image {
             flex: 0.9;
             background: url('hero.png') center/cover no-repeat;
-            border-radius: 32px; min-height: 320px; background-color: #dce5ec;
-            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15);
+            border-radius: 32px;
+            min-height: 320px;
+            background-color: #dce5ec;
+            box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
         }
 
-        .section { padding: 80px 0; }
-        .section-title { text-align: center; font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; }
-        .section-sub { text-align: center; color: #5b6e8c; max-width: 650px; margin: 0 auto 56px; }
+        .section {
+            padding: 80px 0;
+        }
 
-        .cards { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; }
-        
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #5b6e8c;
+            max-width: 650px;
+            margin: 0 auto 56px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+
         /* BARRA DE CONFIANZA */
-        .trust-bar-container { background-color: #fff; padding: 24px 0; border-bottom: 1px solid #ecf3f9; }
-        .trust-bar { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center; }
-        .trust-item { display: flex; align-items: center; gap: 12px; font-weight: 600; color: #2c3e4e; }
-        .trust-item i { font-size: 1.8rem; color: #1d7e6b; }
-        @media (max-width: 760px) { .trust-bar { flex-direction: column; gap: 16px; align-items: flex-start; margin-left: 15%; } }
-        
+        .trust-bar-container {
+            background-color: #fff;
+            padding: 24px 0;
+            border-bottom: 1px solid #ecf3f9;
+        }
+
+        .trust-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: #2c3e4e;
+        }
+
+        .trust-item i {
+            font-size: 1.8rem;
+            color: #1d7e6b;
+        }
+
+        @media (max-width: 760px) {
+            .trust-bar {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+                margin-left: 15%;
+            }
+        }
+
         /* ESTILOS DE LAS TARJETAS (Ajustado para fotos) */
         .card {
-            background: white; border-radius: 28px; position: relative;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.05); flex: 1 1 280px;
-            max-width: 350px; /* Evita que la tarjeta se estire demasiado */
-            transition: all 0.25s ease; text-align: center; border: 1px solid #ecf3f9;
-            overflow: hidden; /* Importante para que la foto no se salga */
+            background: white;
+            border-radius: 28px;
+            position: relative;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            flex: 1 1 280px;
+            max-width: 350px;
+            /* Evita que la tarjeta se estire demasiado */
+            transition: all 0.25s ease;
+            text-align: center;
+            border: 1px solid #ecf3f9;
+            overflow: hidden;
+            /* Importante para que la foto no se salga */
         }
+
         .card-badge {
-            position: absolute; top: 12px; left: 12px; z-index: 10;
-            background: linear-gradient(135deg, #ff6b6b, #d62976); color: white;
-            padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 10;
+            background: linear-gradient(135deg, #ff6b6b, #d62976);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
             box-shadow: 0 4px 10px rgba(214, 41, 118, 0.4);
-            letter-spacing: 0.5px; text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
-        .card-badge.blue { background: linear-gradient(135deg, #4da8da, #1d7e6b); box-shadow: 0 4px 10px rgba(29, 126, 107, 0.4); }
-        .card:hover { transform: translateY(-6px); box-shadow: 0 24px 40px rgba(0,0,0,0.1); }
-        
+
+        .card-badge.blue {
+            background: linear-gradient(135deg, #4da8da, #1d7e6b);
+            box-shadow: 0 4px 10px rgba(29, 126, 107, 0.4);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 40px rgba(0, 0, 0, 0.1);
+        }
+
         /* Contenedor de la foto en la tarjeta */
         .card-image-top {
             width: 100%;
-            height: 200px; /* Altura fija para la imagen */
+            height: 200px;
+            /* Altura fija para la imagen */
             overflow: hidden;
             border-bottom: 1px solid #ecf3f9;
         }
+
         .card-image-top img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Clave para que la foto encuadre perfecto sin deformarse */
+            object-fit: cover;
+            /* Clave para que la foto encuadre perfecto sin deformarse */
         }
+
         /* FONDOS PREMIUM CON CSS PARA PNGS TRANSPARENTES */
         .premium-bg {
             background-image: url('podio_bg.jpg');
@@ -129,48 +286,66 @@
             justify-content: center;
             overflow: hidden;
         }
+
         .premium-bg::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.1); /* Overlay de luz muy sutil */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            /* Overlay de luz muy sutil */
         }
+
         .premium-bg img {
-            object-fit: contain !important; /* Para que el PNG no se recorte */
-            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.25)) drop-shadow(0 5px 5px rgba(0,0,0,0.15)); /* Doble sombra para súper realismo 3D */
+            object-fit: contain !important;
+            /* Para que el PNG no se recorte */
+            filter: drop-shadow(5px 15px 20px rgba(0, 0, 0, 0.25)) drop-shadow(0 5px 5px rgba(0, 0, 0, 0.15));
+            /* Doble sombra para súper realismo 3D */
             z-index: 2;
             padding: 15px;
-            transform: scale(0.95) translateY(-5px); /* Eleva un poco el producto */
+            transform: scale(0.95) translateY(-5px);
+            /* Eleva un poco el producto */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .card:hover .premium-bg img, .card:hover .premium-bg-desk img {
-            transform: scale(1.08) translateY(-10px); /* Efecto de flotar hacia arriba y crecer */
+
+        .card:hover .premium-bg img,
+        .card:hover .premium-bg-desk img {
+            transform: scale(1.08) translateY(-10px);
+            /* Efecto de flotar hacia arriba y crecer */
         }
-        
+
         /* ESTILOS PARA MÚLTIPLES IMÁGENES SUPERPUESTAS */
         .multi-img img {
             position: absolute;
-            width: 65% !important; /* Más chicas para que entren ambas */
+            width: 65% !important;
+            /* Más chicas para que entren ambas */
         }
+
         .multi-img .img-back {
             right: 0;
             top: 10px;
             z-index: 1;
             transform: scale(0.85) translateY(0);
-            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.2)) blur(0.5px); /* Efecto de profundidad de campo */
+            filter: drop-shadow(5px 15px 20px rgba(0, 0, 0, 0.2)) blur(0.5px);
+            /* Efecto de profundidad de campo */
         }
+
         .multi-img .img-front {
             left: 0;
             z-index: 3;
             transform: scale(0.95) translateY(5px);
         }
+
         .card:hover .multi-img .img-front {
             transform: scale(1.05) translateY(-5px) !important;
         }
+
         .card:hover .multi-img .img-back {
             transform: scale(0.95) translateY(-10px) !important;
         }
-        
+
         /* Variante 2 de fondo: Escritorio de madera/estudio */
         .premium-bg-desk {
             background-image: url('desk_bg.jpg');
@@ -182,15 +357,20 @@
             justify-content: center;
             overflow: hidden;
         }
+
         .premium-bg-desk::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.15); 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
         }
+
         .premium-bg-desk img {
             object-fit: contain !important;
-            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.25)) drop-shadow(0 5px 5px rgba(0,0,0,0.15));
+            filter: drop-shadow(5px 15px 20px rgba(0, 0, 0, 0.25)) drop-shadow(0 5px 5px rgba(0, 0, 0, 0.15));
             z-index: 2;
             padding: 15px;
             transform: scale(0.95) translateY(-5px);
@@ -208,15 +388,20 @@
             justify-content: center;
             overflow: hidden;
         }
+
         .premium-bg-wood::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.1); 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
         }
+
         .premium-bg-wood img {
             object-fit: contain !important;
-            filter: drop-shadow(5px 15px 25px rgba(0,0,0,0.3)) drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+            filter: drop-shadow(5px 15px 25px rgba(0, 0, 0, 0.3)) drop-shadow(0 5px 5px rgba(0, 0, 0, 0.2));
             z-index: 2;
             padding: 15px;
             transform: scale(0.95) translateY(-5px);
@@ -234,22 +419,28 @@
             justify-content: center;
             overflow: hidden;
         }
+
         .premium-bg-marble::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.4); 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.4);
         }
+
         .premium-bg-marble img {
             object-fit: contain !important;
-            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.2)) drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+            filter: drop-shadow(5px 15px 20px rgba(0, 0, 0, 0.2)) drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1));
             z-index: 2;
             padding: 15px;
             transform: scale(0.95) translateY(-5px);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .card:hover .premium-bg-wood img, .card:hover .premium-bg-marble img {
+        .card:hover .premium-bg-wood img,
+        .card:hover .premium-bg-marble img {
             transform: scale(1.08) translateY(-10px);
         }
 
@@ -260,26 +451,32 @@
             overflow: hidden;
             padding: 0 !important;
         }
+
         .crossfade-container img {
             width: 100%;
             height: 100%;
             object-fit: cover !important;
             position: absolute;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             padding: 0 !important;
             filter: none !important;
             transition: opacity 0.5s ease-in-out, transform 0.8s ease;
         }
+
         .cf-top {
             z-index: 2;
             opacity: 1;
         }
+
         .cf-bottom {
             z-index: 1;
         }
+
         .card:hover .cf-top {
             opacity: 0;
         }
+
         .card:hover .cf-bottom {
             transform: scale(1.05);
         }
@@ -290,6 +487,7 @@
             background: #fff;
             overflow: hidden;
         }
+
         .framed-photo img {
             width: 100%;
             height: 100%;
@@ -299,6 +497,7 @@
             filter: none !important;
             transition: transform 0.6s ease;
         }
+
         .card:hover .framed-photo img {
             transform: scale(1.1);
         }
@@ -310,36 +509,90 @@
             overflow: hidden;
             padding: 0 !important;
         }
+
         .slideshow-container img {
             width: 100%;
             height: 100%;
             object-fit: cover !important;
             position: absolute;
-            top: 0; left: 0;
+            top: 0;
+            left: 0;
             padding: 0 !important;
             filter: none !important;
             opacity: 0;
             animation: slideFade 15s infinite;
         }
-        .slideshow-container img:nth-child(1) { animation-delay: 0s; }
-        .slideshow-container img:nth-child(2) { animation-delay: 3s; }
-        .slideshow-container img:nth-child(3) { animation-delay: 6s; }
-        .slideshow-container img:nth-child(4) { animation-delay: 9s; }
-        .slideshow-container img:nth-child(5) { animation-delay: 12s; }
+
+        .slideshow-container img:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .slideshow-container img:nth-child(2) {
+            animation-delay: 3s;
+        }
+
+        .slideshow-container img:nth-child(3) {
+            animation-delay: 6s;
+        }
+
+        .slideshow-container img:nth-child(4) {
+            animation-delay: 9s;
+        }
+
+        .slideshow-container img:nth-child(5) {
+            animation-delay: 12s;
+        }
 
         @keyframes slideFade {
-            0% { opacity: 0; transform: scale(1); }
-            5% { opacity: 1; transform: scale(1.02); }
-            20% { opacity: 1; transform: scale(1.05); }
-            25% { opacity: 0; transform: scale(1.06); }
-            100% { opacity: 0; }
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+            5% {
+                opacity: 1;
+                transform: scale(1.02);
+            }
+
+            20% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            25% {
+                opacity: 0;
+                transform: scale(1.06);
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
 
         /* Contenedor del texto en la tarjeta */
-        .card-content { padding: 25px; }
-        .card-content i { font-size: 2.8rem; color: #1d7e6b; margin-bottom: 20px; } /* Para las tarjetas sin foto */
-        .card-content h3 { font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; color: #1f2a3e; }
-        .card-content p { color: #5b6e8c; font-size: 0.95rem; font-weight: 400; }
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content i {
+            font-size: 2.8rem;
+            color: #1d7e6b;
+            margin-bottom: 20px;
+        }
+
+        /* Para las tarjetas sin foto */
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+            color: #1f2a3e;
+        }
+
+        .card-content p {
+            color: #5b6e8c;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
 
         /* Clases de animación */
         .fade-in-up {
@@ -347,144 +600,225 @@
             transform: translateY(30px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
+
         .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         /* Retraso escalonado para las tarjetas */
-        .card:nth-child(1) { transition-delay: 0.1s; }
-        .card:nth-child(2) { transition-delay: 0.2s; }
-        .card:nth-child(3) { transition-delay: 0.3s; }
-        .card:nth-child(4) { transition-delay: 0.4s; }
+        .card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
 
         /* ESTILOS DE LA GALERÍA MODAL */
         .modal {
-            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
-            width: 100%; height: 100%; background-color: rgba(0,0,0,0.85);
-            align-items: center; justify-content: center; backdrop-filter: blur(5px);
-            opacity: 0; transition: opacity 0.3s ease;
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .modal.show { opacity: 1; }
-        
+
+        .modal.show {
+            opacity: 1;
+        }
+
         .modal-content {
-            background-color: #fff; margin: auto; padding: 30px;
-            border-radius: 20px; width: 90%; max-width: 1000px; max-height: 90vh;
-            overflow-y: auto; position: relative;
-            transform: translateY(20px); transition: transform 0.3s ease;
+            background-color: #fff;
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
         }
-        .modal.show .modal-content { transform: translateY(0); }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
 
         .close-btn {
-            position: absolute; top: 15px; right: 20px;
-            color: #5b6e8c; font-size: 28px; font-weight: bold; cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #5b6e8c;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
             transition: 0.2s;
         }
-        .close-btn:hover { color: #d62976; }
 
-        .modal-header h2 { margin-bottom: 20px; color: #1f2a3e; font-size: 2rem; border-bottom: 2px solid #ecf3f9; padding-bottom: 10px; }
+        .close-btn:hover {
+            color: #d62976;
+        }
+
+        .modal-header h2 {
+            margin-bottom: 20px;
+            color: #1f2a3e;
+            font-size: 2rem;
+            border-bottom: 2px solid #ecf3f9;
+            padding-bottom: 10px;
+        }
 
         .gallery-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
         }
+
         .gallery-item {
-            width: 100%; height: 200px; border-radius: 12px;
-            object-fit: cover; cursor: pointer; transition: transform 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .gallery-item:hover { transform: scale(1.05); }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
 
         /* LIGHTBOX PARA VER FOTO ORIGINAL */
         .lightbox {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
-            width: 100%; height: 100%; background-color: rgba(0,0,0,0.95);
-            align-items: center; justify-content: center; opacity: 0;
-            transition: opacity 0.3s ease; backdrop-filter: blur(5px);
-            user-select: none;
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
         }
-        .lightbox.show { opacity: 1; }
+
+        .lightbox.show {
+            opacity: 1;
+        }
+
         .lightbox img {
-            max-width: 88%; max-height: 82vh; border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            transform: scale(0.9); transition: transform 0.3s ease;
-            pointer-events: none; /* evita que el toque en la imagen propague */
-            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
         }
-        .lightbox.show img { transform: scale(1); }
 
-        /* Botón cerrar lightbox — grande para dedo */
+        .lightbox.show img {
+            transform: scale(1);
+        }
+
         .lightbox-close {
-            position: absolute; top: 12px; right: 12px;
-            color: #fff; font-size: 28px; font-weight: bold; cursor: pointer;
-            background: rgba(255,255,255,0.15);
-            border: none; border-radius: 50%;
-            width: 48px; height: 48px;
-            display: flex; align-items: center; justify-content: center;
-            transition: background 0.2s;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: transparent;
-            z-index: 10;
-        }
-        .lightbox-close:hover, .lightbox-close:active { background: #d62976; }
-
-        /* Flechas de navegación */
-        .lightbox-prev, .lightbox-next {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255,255,255,0.15); border: none; border-radius: 50%;
-            color: #fff; font-size: 22px; width: 48px; height: 48px;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: background 0.2s;
-            touch-action: manipulation; -webkit-tap-highlight-color: transparent;
-            z-index: 10;
-        }
-        .lightbox-prev { left: 12px; }
-        .lightbox-next { right: 12px; }
-        .lightbox-prev:hover, .lightbox-prev:active,
-        .lightbox-next:hover, .lightbox-next:active { background: rgba(255,255,255,0.35); }
-
-        /* Contador de foto */
-        .lightbox-counter {
-            position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
-            color: rgba(255,255,255,0.7); font-size: 0.85rem; font-family: 'Poppins', sans-serif;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
         }
 
-        /* Hint de swipe (solo móvil) */
-        .lightbox-hint {
-            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
-            color: rgba(255,255,255,0.4); font-size: 0.75rem; font-family: 'Poppins', sans-serif;
-            white-space: nowrap;
+        .lightbox-close:hover {
+            color: #d62976;
         }
 
         /* Hacer las tarjetas cliqueables */
-        .card { cursor: pointer; }
+        .card {
+            cursor: pointer;
+        }
 
         .contact-section {
-            background: #1f2a3e; color: white; border-radius: 40px;
-            margin-bottom: 40px; padding: 56px 48px;
+            background: #1f2a3e;
+            color: white;
+            border-radius: 40px;
+            margin-bottom: 40px;
+            padding: 56px 48px;
         }
 
         .form-whatsapp {
-            background: white; padding: 30px; border-radius: 20px; color: #333;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            color: #333;
         }
 
-        .form-whatsapp input, .form-whatsapp select, .form-whatsapp textarea {
-            width: 100%; padding: 15px; margin-bottom: 15px;
-            border: 1px solid #ddd; border-radius: 8px;
-            font-family: 'Poppins', sans-serif; outline: none;
+        .form-whatsapp input,
+        .form-whatsapp select,
+        .form-whatsapp textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            outline: none;
         }
 
-        .form-whatsapp input:focus, .form-whatsapp select:focus, .form-whatsapp textarea:focus {
+        .form-whatsapp input:focus,
+        .form-whatsapp select:focus,
+        .form-whatsapp textarea:focus {
             border-color: #1d7e6b;
         }
 
         .btn-wsp {
-            background: #25D366; color: white; width: 100%; padding: 15px;
-            border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem;
-            cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: #25D366;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
-        .btn-wsp:hover { background: #1ebd57; }
 
-        footer { text-align: center; padding: 32px 0; color: #6c7a91; border-top: 1px solid #ecf3f9; }
+        .btn-wsp:hover {
+            background: #1ebd57;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            color: #6c7a91;
+            border-top: 1px solid #ecf3f9;
+        }
 
         /* BOTÓN FLOTANTE WHATSAPP */
         .wsp-float {
@@ -506,6 +840,7 @@
             text-decoration: none;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         .wsp-float:hover {
             background-color: #20b858;
             transform: scale(1.15) translateY(-5px);
@@ -523,143 +858,31 @@
             border-radius: 12px;
             font-size: 0.95rem;
             margin-bottom: 24px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
         }
-        
-        /* ===== MENÚ HAMBURGUESA ===== */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 6px;
-            background: none;
-            border: none;
-            z-index: 200;
-        }
-        .hamburger span {
-            display: block;
-            width: 26px;
-            height: 3px;
-            background: #1f2a3e;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-        .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-        /* ===== RESPONSIVE MOBILE ===== */
-        @media (max-width: 768px) {
-
-            /* Navbar */
+        @media (max-width: 760px) {
             .navbar {
-                flex-wrap: nowrap;
-                justify-content: space-between;
-                align-items: center;
-                padding: 14px 0;
-                gap: 0;
-            }
-            .hamburger { display: flex; }
-            .nav-links {
-                display: none;
                 flex-direction: column;
-                gap: 0;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #fff;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-                padding: 16px 24px 24px;
-                z-index: 150;
-            }
-            .nav-links.open { display: flex; }
-            .nav-links li { border-bottom: 1px solid #f0f4f8; }
-            .nav-links li:last-child { border-bottom: none; }
-            .nav-links a {
-                display: block;
-                padding: 14px 0;
-                font-size: 1.05rem;
-            }
-            .nav-links .btn-ig {
-                margin-top: 10px;
-                justify-content: center;
-                border-radius: 12px;
             }
 
-            /* Hero */
-            .hero { padding: 40px 0 30px; }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+
             .hero-grid {
-                flex-direction: column;
-                gap: 24px;
-            }
-            .hero-content { flex: 1; text-align: center; }
-            .hero-content h1 { font-size: 2rem; }
-            .hero-content p { font-size: 1rem; max-width: 100%; }
-            .hero-badge { font-size: 0.8rem; }
-            .trust-badge { font-size: 0.85rem; text-align: left; }
-            .hero-content div[style] {
-                justify-content: center !important;
-            }
-            .hero-image { 
-                width: 100%; 
-                min-height: 200px; 
-                border-radius: 20px; 
-                flex: none;
+                gap: 20px;
             }
 
-            /* Trust Bar */
-            .trust-bar {
-                flex-direction: column;
-                gap: 14px;
-                align-items: flex-start;
-                padding-left: 16px;
-            }
-
-            /* Secciones */
-            .section { padding: 48px 0; }
-            .section-title { font-size: 1.8rem; }
-            .section-sub { font-size: 0.95rem; margin-bottom: 32px; }
-
-            /* Cards */
-            .cards { gap: 20px; }
-            .card { flex: 1 1 100%; max-width: 100%; }
-            .card-image-top { height: 220px; }
-
-            /* Testimonios */
-            .card[style] { padding: 24px !important; }
-
-            /* Contacto */
             .contact-section {
-                padding: 32px 20px;
-                border-radius: 24px;
-                margin-bottom: 24px;
+                padding: 30px;
             }
-            .contact-section .hero-grid {
-                flex-direction: column;
-                gap: 28px;
-            }
-            .contact-section h2 { font-size: 1.8rem !important; }
-            .form-whatsapp { padding: 22px 18px; }
-
-            /* Footer */
-            footer { padding: 24px 0; font-size: 0.85rem; }
-
-            /* Botón flotante WhatsApp */
-            .wsp-float { bottom: 20px; right: 16px; width: 52px; height: 52px; font-size: 26px; }
-        }
-
-        /* Pantallas muy chicas (ej: iPhone SE) */
-        @media (max-width: 380px) {
-            .hero-content h1 { font-size: 1.7rem; }
-            .logo h1 { font-size: 1.4rem; }
-            .container { padding: 0 16px; }
         }
     </style>
 </head>
+
 <body>
-    
+
     <header>
         <div class="container">
             <div class="navbar">
@@ -667,16 +890,15 @@
                     <h1>Impresionarte 3D</h1>
                     <span>Creatividad en tercera dimensión</span>
                 </div>
-                <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links" id="navLinks">
+                <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Catálogo</a></li>
                     <li><a href="#contacto">Cotizar</a></li>
-                    <li><a href="https://www.instagram.com/impresionarte3d.tm" target="_blank" class="btn-ig"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="calculadora.html" class="btn-ig"
+                            style="background: #e0f2e9; color: #1b6b5e !important;"><i class="fas fa-calculator"></i>
+                            Calculadora</a></li>
+                    <li><a href="https://www.instagram.com/impresionarte3d.tm" target="_blank" class="btn-ig"><i
+                                class="fab fa-instagram"></i> Instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -688,15 +910,20 @@
                 <div class="hero-content">
                     <div class="hero-badge"><i class="fas fa-cube"></i> Especialistas en impresión 3D</div>
                     <h1>Diseños que cobran <br>vida en 3D</h1>
-                    <p>Prototipos, figuras personalizadas, piezas funcionales y mucho más. Transformamos tus ideas en objetos reales con calidad profesional.</p>
-                    
+                    <p>Prototipos, figuras personalizadas, piezas funcionales y mucho más. Transformamos tus ideas en
+                        objetos reales con calidad profesional.</p>
+
                     <div class="trust-badge fade-in-up">
-                        <i class="fas fa-check-circle" style="color:#25d366; font-size: 1.2rem;"></i> 
+                        <i class="fas fa-check-circle" style="color:#25d366; font-size: 1.2rem;"></i>
                         <span>Calidad Premium garantizada: Imprimimos con <strong>tecnología Bambu Lab</strong></span>
                     </div>
                     <br>
                     <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
-                        <a href="#contacto" class="btn-ig" style="background:#1d7e6b; padding: 12px 25px;">Cotizar Proyecto Especial</a>
+                        <a href="#contacto" class="btn-ig" style="background:#1d7e6b; padding: 12px 25px;">Cotizar
+                            Proyecto Especial</a>
+                        <a href="calculadora.html" class="btn-ig"
+                            style="background:#fff; color:#1d7e6b !important; border: 2px solid #1d7e6b; padding: 10px 25px;"><i
+                                class="fas fa-calculator"></i> Usar Calculadora de Costos</a>
                     </div>
                 </div>
                 <div class="hero-image"></div>
@@ -725,9 +952,10 @@
         <section id="servicios" class="section">
             <div class="container">
                 <h2 class="section-title fade-in-up">Nuestras Especialidades</h2>
-                <p class="section-sub fade-in-up">Diseño y fabricación digital para proyectos personalizados, regalería y piezas únicas.</p>
+                <p class="section-sub fade-in-up">Diseño y fabricación digital para proyectos personalizados, regalería
+                    y piezas únicas.</p>
                 <div class="cards">
-                    
+
                     <div class="card fade-in-up" data-category="mates">
                         <div class="card-badge">🔥 Más Vendido</div>
                         <div class="card-image-top slideshow-container">
@@ -739,7 +967,8 @@
                         </div>
                         <div class="card-content">
                             <h3>Chopp y Mates</h3>
-                            <p>Diseños personalizados inspirados en el cine, deportes y cultura pop. Materiales resistentes.</p>
+                            <p>Diseños personalizados inspirados en el cine, deportes y cultura pop. Materiales
+                                resistentes.</p>
                         </div>
                     </div>
 
@@ -769,7 +998,8 @@
                         </div>
                         <div class="card-content">
                             <h3>Eventos & Deco</h3>
-                            <p>Toppers para tortas y souvenirs que salen de lo convencional para darle identidad a tu fiesta.</p>
+                            <p>Toppers para tortas y souvenirs que salen de lo convencional para darle identidad a tu
+                                fiesta.</p>
                         </div>
                     </div>
 
@@ -779,11 +1009,13 @@
                             <img src="Material Didactico/IMG_20251009_112842509.jpg" alt="Material Didáctico 2">
                             <img src="Material Didactico/IMG_20251009_181620826_HDR.jpg" alt="Material Didáctico 3">
                             <img src="Material Didactico/IMG_20251014_104932029_HDR.jpg" alt="Material Didáctico 4">
-                            <img src="Material Didactico/IMG_20260406_110915430_HDR - copia.jpg" alt="Material Didáctico 5">
+                            <img src="Material Didactico/IMG_20260406_110915430_HDR - copia.jpg"
+                                alt="Material Didáctico 5">
                         </div>
                         <div class="card-content">
                             <h3>Material Didáctico</h3>
-                            <p>Piezas de apoyo escolar, modelos anatómicos y herramientas diseñadas para el aprendizaje.</p>
+                            <p>Piezas de apoyo escolar, modelos anatómicos y herramientas diseñadas para el aprendizaje.
+                            </p>
                         </div>
                     </div>
 
@@ -797,7 +1029,8 @@
                         </div>
                         <div class="card-content">
                             <h3>Figuras y Muñecos</h3>
-                            <p>Figuras de colección, personajes a medida y miniaturas con excelente nivel de detalle.</p>
+                            <p>Figuras de colección, personajes a medida y miniaturas con excelente nivel de detalle.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -807,27 +1040,40 @@
         <section id="testimonios" class="section" style="background-color: #f9fafc;">
             <div class="container">
                 <h2 class="section-title fade-in-up">Lo que dicen nuestros clientes</h2>
-                <p class="section-sub fade-in-up">Opiniones reales de quienes ya confiaron en la calidad de Impresionarte 3D.</p>
+                <p class="section-sub fade-in-up">Opiniones reales de quienes ya confiaron en la calidad de
+                    Impresionarte 3D.</p>
                 <div class="cards">
-                    <div class="card fade-in-up" style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div class="card fade-in-up"
+                        style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
                         <div style="color: #f1c40f; margin-bottom: 12px; font-size: 1.2rem;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"Excelente calidad y terminación. Pedí unos llaveros para mi empresa y quedaron espectaculares. Súper recomendados."</p>
+                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"Excelente calidad y
+                            terminación. Pedí unos llaveros para mi empresa y quedaron espectaculares. Súper
+                            recomendados."</p>
                         <h4 style="font-weight: 700; color: #1f2a3e;">- Jorge R.</h4>
                     </div>
-                    <div class="card fade-in-up" style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div class="card fade-in-up"
+                        style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
                         <div style="color: #f1c40f; margin-bottom: 12px; font-size: 1.2rem;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"El mate personalizado que me hicieron es una locura. Los detalles son increíbles y la entrega fue rapidísima. Impecable servicio."</p>
-                        <h4 style="font-weight: 700; color: #1f2a3e;">- María G.</h4>
+                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"El mate personalizado que
+                            me hicieron es una locura. Los detalles son increíbles y la entrega fue rapidísima.
+                            Impecable servicio."</p>
+                        <h4 style="font-weight: 700; color: #1f2a3e;">- Karina M.</h4>
                     </div>
-                    <div class="card fade-in-up" style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div class="card fade-in-up"
+                        style="padding: 30px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
                         <div style="color: #f1c40f; margin-bottom: 12px; font-size: 1.2rem;">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
-                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"Compré unas figuras de colección y no puedo creer el nivel de detalle que tienen. ¡Ya estoy pensando en mi próximo pedido!"</p>
+                        <p style="font-style: italic; color: #4a5568; margin-bottom: 20px;">"Compré unas figuras de
+                            colección y no puedo creer el nivel de detalle que tienen. ¡Ya estoy pensando en mi próximo
+                            pedido!"</p>
                         <h4 style="font-weight: 700; color: #1f2a3e;">- Lucas M.</h4>
                     </div>
                 </div>
@@ -839,17 +1085,21 @@
                 <div class="hero-grid">
                     <div class="contact-info" style="flex: 1;">
                         <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Hagamos realidad tu idea</h2>
-                        <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px;">Completá el formulario y te enviaremos un presupuesto detallado directamente a tu WhatsApp. Respondemos rápido.</p>
-                        <p style="font-size: 1.2rem; margin-bottom: 10px;"><i class="fab fa-instagram"></i> <strong>@impresionarte3d.tm</strong></p>
-                        <p style="font-size: 1.1rem;"><i class="fas fa-clock"></i> Tiempo de producción: 1 a 2 semanas.</p>
+                        <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px;">Completá el formulario y te
+                            enviaremos un presupuesto detallado directamente a tu WhatsApp. Respondemos rápido.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 10px;"><i class="fab fa-instagram"></i>
+                            <strong>@impresionarte3d.tm</strong>
+                        </p>
+                        <p style="font-size: 1.1rem;"><i class="fas fa-clock"></i> Tiempo de producción: 1 a 2 semanas.
+                        </p>
                     </div>
-                    
+
                     <div style="flex: 1;">
                         <form class="form-whatsapp" id="form-pedidos">
                             <h3 style="margin-bottom: 20px; color: #1d7e6b; text-align: center;">Cotización Rápida</h3>
-                            
+
                             <input type="text" id="wsp-nombre" placeholder="Tu Nombre completo" required>
-                            
+
                             <select id="wsp-servicio" required>
                                 <option value="">¿Qué necesitás realizar?</option>
                                 <option value="Chopp y Mates personalizados">Chopp y Mates personalizados</option>
@@ -865,10 +1115,12 @@
                                 <option value="Retiro por Temperley">Retiro por Temperley</option>
                                 <option value="Envío a domicilio">Envío a domicilio (A coordinar)</option>
                             </select>
-                            
-                            <textarea id="wsp-detalle" rows="4" placeholder="Contanos medidas, colores o si ya tenés el diseño..." required></textarea>
-                            
-                            <button type="submit" class="btn-wsp"><i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Enviar por WhatsApp</button>
+
+                            <textarea id="wsp-detalle" rows="4"
+                                placeholder="Contanos medidas, colores o si ya tenés el diseño..." required></textarea>
+
+                            <button type="submit" class="btn-wsp"><i class="fab fa-whatsapp"
+                                    style="font-size: 1.5rem;"></i> Enviar por WhatsApp</button>
                         </form>
                     </div>
                 </div>
@@ -884,12 +1136,8 @@
 
     <!-- Lightbox para foto ampliada -->
     <div id="lightboxModal" class="lightbox">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">&times;</button>
-        <button class="lightbox-prev" id="lightboxPrev" aria-label="Anterior">&#8249;</button>
+        <span class="lightbox-close">&times;</span>
         <img id="lightboxImg" src="" alt="Foto ampliada">
-        <button class="lightbox-next" id="lightboxNext" aria-label="Siguiente">&#8250;</button>
-        <div class="lightbox-counter" id="lightboxCounter"></div>
-        <div class="lightbox-hint" id="lightboxHint">Deslizá para navegar &bull; Abajo para cerrar</div>
     </div>
 
     <!-- Ventana Modal de Galería -->
@@ -906,12 +1154,13 @@
     </div>
 
     <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/5491159967951?text=Hola%20Impresionarte%203D!%20%F0%9F%91%8B%20Vengo%20desde%20la%20web%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta." class="wsp-float fade-in-up" target="_blank" title="Contactanos por WhatsApp">
+    <a href="https://wa.me/5491159967951?text=Hola%20Impresionarte%203D!%20%F0%9F%91%8B%20Vengo%20desde%20la%20web%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta."
+        class="wsp-float fade-in-up" target="_blank" title="Contactanos por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        document.getElementById('form-pedidos').addEventListener('submit', function(e) {
+        document.getElementById('form-pedidos').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const nombre = document.getElementById('wsp-nombre').value;
@@ -934,7 +1183,7 @@
         });
 
         // Animaciones al hacer scroll
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -955,7 +1204,7 @@
         });
 
         // --- LÓGICA DE LA GALERÍA MODAL ---
-        
+
         // Base de datos de fotos (Cargadas desde carpetas organizadas)
         const galleryData = {
             'mates': [
@@ -985,143 +1234,66 @@
             card.addEventListener('click', () => {
                 const category = card.getAttribute('data-category');
                 const title = card.querySelector('h3').innerText;
-                
+
                 modalTitle.innerText = `Galería: ${title}`;
                 grid.innerHTML = ''; // Limpiar galería anterior
 
                 // Cargar imágenes de la categoría
-                if(galleryData[category]) {
-                    const imgs = galleryData[category];
-                    imgs.forEach((imgSrc, idx) => {
+                if (galleryData[category]) {
+                    galleryData[category].forEach(imgSrc => {
                         const img = document.createElement('img');
                         img.src = imgSrc;
                         img.className = 'gallery-item';
                         img.alt = `Trabajo de ${title}`;
-                        
-                        // Abrir lightbox con índice para poder navegar entre fotos
-                        img.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            openLightbox(imgs, idx);
+
+                        // Evento para abrir el Lightbox al hacer clic en la miniatura
+                        img.addEventListener('click', () => {
+                            const lightbox = document.getElementById('lightboxModal');
+                            const lightboxImg = document.getElementById('lightboxImg');
+                            lightboxImg.src = imgSrc;
+                            lightbox.style.display = 'flex';
+                            setTimeout(() => lightbox.classList.add('show'), 10);
                         });
-                        
+
                         grid.appendChild(img);
                     });
                 }
 
-                // Mostrar modal + agregar estado al historial (botón Atrás)
+                // Mostrar modal
                 modal.style.display = 'flex';
                 setTimeout(() => modal.classList.add('show'), 10);
-                document.body.style.overflow = 'hidden';
-                history.pushState({ modal: 'gallery' }, '');
+                document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
             });
         });
 
-        // Función para cerrar modal (SOLO UI, no toca el historial)
-        const _closeModalUI = () => {
+        // Función para cerrar modal
+        const closeModal = () => {
             modal.classList.remove('show');
             setTimeout(() => modal.style.display = 'none', 300);
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
         };
-
-        // Cierre público: siempre navega atrás, popstate hace el trabajo de UI
-        const closeModal = () => history.back();
 
         closeBtn.addEventListener('click', closeModal);
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
 
-        // --- Lógica del Lightbox mejorado ---
+        // --- Lógica del Lightbox ---
         const lightbox = document.getElementById('lightboxModal');
-        const lightboxImg = document.getElementById('lightboxImg');
-        const lightboxCounter = document.getElementById('lightboxCounter');
-        const lightboxHint = document.getElementById('lightboxHint');
-        let lbImages = [];
-        let lbIndex = 0;
+        const lightboxClose = document.querySelector('.lightbox-close');
 
-        function openLightbox(images, index) {
-            lbImages = images;
-            lbIndex = index;
-            updateLightbox();
-            lightbox.style.display = 'flex';
-            setTimeout(() => lightbox.classList.add('show'), 10);
-            lightboxHint.style.display = ('ontouchstart' in window) ? 'block' : 'none';
-            history.pushState({ modal: 'lightbox' }, '');
-        }
-
-        function updateLightbox() {
-            lightboxImg.src = lbImages[lbIndex];
-            lightboxCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
-        }
-
-        // Cierre de lightbox SOLO UI
-        function _closeLightboxUI() {
+        const closeLightbox = () => {
             lightbox.classList.remove('show');
-            setTimeout(() => { lightbox.style.display = 'none'; lightboxImg.src = ''; }, 300);
-        }
+            setTimeout(() => lightbox.style.display = 'none', 300);
+        };
 
-        // Cierre público: siempre navega atrás
-        function closeLightbox() { history.back(); }
-
-        function prevPhoto() { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightbox(); }
-        function nextPhoto() { lbIndex = (lbIndex + 1) % lbImages.length; updateLightbox(); }
-
-        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
-        document.getElementById('lightboxPrev').addEventListener('click', (e) => { e.stopPropagation(); prevPhoto(); });
-        document.getElementById('lightboxNext').addEventListener('click', (e) => { e.stopPropagation(); nextPhoto(); });
-
-        // Cerrar tocando el fondo negro
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-        // Teclado (desktop)
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.style.display !== 'flex') return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') prevPhoto();
-            if (e.key === 'ArrowRight') nextPhoto();
-        });
-
-        // SWIPE táctil
-        let tsX = 0, tsY = 0;
-        lightbox.addEventListener('touchstart', (e) => {
-            tsX = e.touches[0].clientX;
-            tsY = e.touches[0].clientY;
-        }, { passive: true });
-        lightbox.addEventListener('touchend', (e) => {
-            const dx = e.changedTouches[0].clientX - tsX;
-            const dy = e.changedTouches[0].clientY - tsY;
-            if (Math.abs(dy) > Math.abs(dx) && dy > 60) { closeLightbox(); return; }
-            if (Math.abs(dx) > 40) { dx < 0 ? nextPhoto() : prevPhoto(); }
-        }, { passive: true });
-
-        // ===== BOTÓN ATRÁS DEL CELULAR (History API) =====
-        // popstate es la ÚNICA fuente que ejecuta el cierre de UI
-        window.addEventListener('popstate', () => {
-            if (lightbox.style.display === 'flex') {
-                _closeLightboxUI();   // cerrar foto → queda en la galería
-            } else if (modal.style.display === 'flex') {
-                _closeModalUI();      // cerrar galería → queda en la web
-            }
-        });
-
-
-        // --- MENÚ HAMBURGUESA ---
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('open');
-            navLinks.classList.toggle('open');
-        });
-
-        // Cerrar menú al hacer clic en cualquier enlace
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburgerBtn.classList.remove('open');
-                navLinks.classList.remove('open');
-            });
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            // Cerrar si se hace clic fuera de la imagen (en el fondo oscuro)
+            if (e.target === lightbox) closeLightbox();
         });
 
     </script>
 </body>
+
 </html>
