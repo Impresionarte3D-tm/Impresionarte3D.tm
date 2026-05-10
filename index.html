@@ -1008,21 +1008,23 @@
                     });
                 }
 
-                // Mostrar modal
+                // Mostrar modal + agregar estado al historial (botón Atrás)
                 modal.style.display = 'flex';
                 setTimeout(() => modal.classList.add('show'), 10);
-                document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
+                document.body.style.overflow = 'hidden';
+                history.pushState({ modal: 'gallery' }, '');
             });
         });
 
-        // Función para cerrar modal
-        const closeModal = () => {
+        // Función para cerrar modal (sin tocar el historial — popstate ya lo maneja)
+        const closeModal = (fromPopstate = false) => {
             modal.classList.remove('show');
             setTimeout(() => modal.style.display = 'none', 300);
-            document.body.style.overflow = 'auto'; // Restaurar scroll
+            document.body.style.overflow = 'auto';
+            if (!fromPopstate) history.back(); // sincroniza el historial
         };
 
-        closeBtn.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', () => closeModal());
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
@@ -1041,8 +1043,8 @@
             updateLightbox();
             lightbox.style.display = 'flex';
             setTimeout(() => lightbox.classList.add('show'), 10);
-            // Mostrar hint solo en touch devices
             lightboxHint.style.display = ('ontouchstart' in window) ? 'block' : 'none';
+            history.pushState({ modal: 'lightbox' }, ''); // botón Atrás
         }
 
         function updateLightbox() {
@@ -1050,9 +1052,10 @@
             lightboxCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
         }
 
-        function closeLightbox() {
+        function closeLightbox(fromPopstate = false) {
             lightbox.classList.remove('show');
             setTimeout(() => { lightbox.style.display = 'none'; lightboxImg.src = ''; }, 300);
+            if (!fromPopstate) history.back(); // sincroniza el historial
         }
 
         function prevPhoto() { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightbox(); }
@@ -1082,9 +1085,21 @@
         lightbox.addEventListener('touchend', (e) => {
             const dx = e.changedTouches[0].clientX - tsX;
             const dy = e.changedTouches[0].clientY - tsY;
-            if (Math.abs(dy) > Math.abs(dx) && dy > 60) { closeLightbox(); return; } // swipe abajo
-            if (Math.abs(dx) > 40) { dx < 0 ? nextPhoto() : prevPhoto(); } // swipe izq/der
+            if (Math.abs(dy) > Math.abs(dx) && dy > 60) { closeLightbox(); return; }
+            if (Math.abs(dx) > 40) { dx < 0 ? nextPhoto() : prevPhoto(); }
         }, { passive: true });
+
+        // ===== BOTÓN ATRÁS DEL CELULAR (History API) =====
+        window.addEventListener('popstate', (e) => {
+            if (lightbox.style.display === 'flex') {
+                // Lightbox abierto → cerrar lightbox
+                closeLightbox(true);
+            } else if (modal.style.display === 'flex') {
+                // Galería abierta → cerrar galería
+                closeModal(true);
+            }
+        });
+
 
         // --- MENÚ HAMBURGUESA ---
         const hamburgerBtn = document.getElementById('hamburgerBtn');
