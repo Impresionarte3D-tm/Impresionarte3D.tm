@@ -1016,15 +1016,17 @@
             });
         });
 
-        // Función para cerrar modal (sin tocar el historial — popstate ya lo maneja)
-        const closeModal = (fromPopstate = false) => {
+        // Función para cerrar modal (SOLO UI, no toca el historial)
+        const _closeModalUI = () => {
             modal.classList.remove('show');
             setTimeout(() => modal.style.display = 'none', 300);
             document.body.style.overflow = 'auto';
-            if (!fromPopstate) history.back(); // sincroniza el historial
         };
 
-        closeBtn.addEventListener('click', () => closeModal());
+        // Cierre público: siempre navega atrás, popstate hace el trabajo de UI
+        const closeModal = () => history.back();
+
+        closeBtn.addEventListener('click', closeModal);
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
@@ -1034,8 +1036,8 @@
         const lightboxImg = document.getElementById('lightboxImg');
         const lightboxCounter = document.getElementById('lightboxCounter');
         const lightboxHint = document.getElementById('lightboxHint');
-        let lbImages = [];   // lista de imágenes de la categoría activa
-        let lbIndex = 0;     // índice actual
+        let lbImages = [];
+        let lbIndex = 0;
 
         function openLightbox(images, index) {
             lbImages = images;
@@ -1044,7 +1046,7 @@
             lightbox.style.display = 'flex';
             setTimeout(() => lightbox.classList.add('show'), 10);
             lightboxHint.style.display = ('ontouchstart' in window) ? 'block' : 'none';
-            history.pushState({ modal: 'lightbox' }, ''); // botón Atrás
+            history.pushState({ modal: 'lightbox' }, '');
         }
 
         function updateLightbox() {
@@ -1052,11 +1054,14 @@
             lightboxCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
         }
 
-        function closeLightbox(fromPopstate = false) {
+        // Cierre de lightbox SOLO UI
+        function _closeLightboxUI() {
             lightbox.classList.remove('show');
             setTimeout(() => { lightbox.style.display = 'none'; lightboxImg.src = ''; }, 300);
-            if (!fromPopstate) history.back(); // sincroniza el historial
         }
+
+        // Cierre público: siempre navega atrás
+        function closeLightbox() { history.back(); }
 
         function prevPhoto() { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightbox(); }
         function nextPhoto() { lbIndex = (lbIndex + 1) % lbImages.length; updateLightbox(); }
@@ -1090,13 +1095,12 @@
         }, { passive: true });
 
         // ===== BOTÓN ATRÁS DEL CELULAR (History API) =====
-        window.addEventListener('popstate', (e) => {
+        // popstate es la ÚNICA fuente que ejecuta el cierre de UI
+        window.addEventListener('popstate', () => {
             if (lightbox.style.display === 'flex') {
-                // Lightbox abierto → cerrar lightbox
-                closeLightbox(true);
+                _closeLightboxUI();   // cerrar foto → queda en la galería
             } else if (modal.style.display === 'flex') {
-                // Galería abierta → cerrar galería
-                closeModal(true);
+                _closeModalUI();      // cerrar galería → queda en la web
             }
         });
 
