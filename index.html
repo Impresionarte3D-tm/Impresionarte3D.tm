@@ -935,6 +935,211 @@
             .logo h1 { font-size: 1.4rem; }
             .container { padding: 0 16px; }
         }
+
+        /* ===== ESTILOS DEL POPUP PROMOCIONAL (CARRUSEL DE VOLANTES) ===== */
+        .promo-modal {
+            display: flex;
+            position: fixed;
+            z-index: 3000; /* Por encima de todo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.7); /* Fondo oscuro semitransparente premium */
+            backdrop-filter: blur(8px); /* Desenfoque de fondo */
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+            padding: 16px;
+        }
+
+        .promo-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .promo-modal-content {
+            background-color: #0f172a; /* Fondo elegante oscuro a tono */
+            border-radius: 24px;
+            width: 100%;
+            max-width: 380px; /* Tamaño óptimo para volantes en celular y escritorio */
+            position: relative;
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .promo-modal.show .promo-modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        /* --- HEADER CON TÍTULO DE NUEVOS DISEÑOS --- */
+        .promo-header {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 14px 16px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            z-index: 105;
+        }
+
+        .promo-header h3 {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #2ec4b6, #1d7e6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .promo-close-btn {
+            position: absolute;
+            top: 7px;
+            right: 10px;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 110;
+            backdrop-filter: blur(4px);
+        }
+
+        .promo-close-btn:hover {
+            background: #d62976;
+            transform: scale(1.1);
+        }
+
+        /* --- ESTILOS DEL CARRUSEL --- */
+        .promo-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 0 0 24px 24px;
+        }
+
+        .promo-slides-wrapper {
+            display: flex;
+            width: 500%; /* 5 diapositivas */
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .promo-slide {
+            width: 20%; /* Cada una ocupa el 100% del contenedor */
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .promo-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .promo-flyer-img {
+            width: 100%;
+            height: auto;
+            max-height: 75vh; /* Ajustamos para dejar espacio al header */
+            display: block;
+            object-fit: contain;
+            border-radius: 0 0 24px 24px;
+        }
+
+        /* Botones de navegación (Flechas) */
+        .promo-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.6);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 100;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .promo-nav-btn:hover {
+            background: #1d7e6b;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .promo-prev-btn {
+            left: 12px;
+        }
+
+        .promo-next-btn {
+            right: 12px;
+        }
+
+        /* Indicadores de Puntos (Dots) */
+        .promo-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.4);
+            padding: 6px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .promo-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .promo-dot.active {
+            background: #ffffff;
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Ajustes especiales para pantallas muy bajas */
+        @media (max-height: 600px) {
+            .promo-modal-content {
+                max-width: 280px;
+            }
+            .promo-nav-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
@@ -1196,6 +1401,66 @@
         <div class="lightbox-hint" id="lightboxHint">Deslizá para navegar &bull; Abajo para cerrar</div>
     </div>
 
+    <!-- Modal Último Diseño (Popup Promocional con Carrusel) -->
+    <div id="promoModal" class="promo-modal">
+        <div class="promo-modal-content">
+            <!-- Header con Título -->
+            <div class="promo-header">
+                <h3>Nuestros nuevos diseños</h3>
+                <button class="promo-close-btn" id="promoCloseBtn" aria-label="Cerrar ventana">&times;</button>
+            </div>
+            
+            <!-- Contenedor del Carrusel -->
+            <div class="promo-carousel">
+                <div class="promo-slides-wrapper" id="promoSlidesWrapper">
+                    <!-- Slide 1: Caja Figuritas -->
+                    <div class="promo-slide" data-slide-index="0" data-category="Otro proyecto a medida" data-message="¡Hola Impresionarte 3D! 👋 Vi la Caja de Figuritas coleccionable (Copa del Mundo) en la web y me gustaría cotizar / encargar una.">
+                        <a href="#contacto" class="promo-link">
+                            <img src="Cajas de figuritas/Caja de figuritas.png" alt="Caja de Figuritas del Mundial - ¡Último Diseño!" class="promo-flyer-img">
+                        </a>
+                    </div>
+                    <!-- Slide 2: Jarra Boca Blanca -->
+                    <div class="promo-slide" data-slide-index="1" data-category="Chopp, Mates y Vasos personalizados" data-message="¡Hola Impresionarte 3D! 👋 Vi la Jarra Térmica de Boca Juniors (Edición Especial 120 Aniversario) en la web y me gustaría reservar una.">
+                        <a href="#contacto" class="promo-link">
+                            <img src="Chopp y Mates/Jarra Balnca Boca.png" alt="Jarra Exclusiva de Boca Juniors Blanca - ¡Edición Especial!" class="promo-flyer-img">
+                        </a>
+                    </div>
+                    <!-- Slide 3: Jarra Boca Azul -->
+                    <div class="promo-slide" data-slide-index="2" data-category="Chopp, Mates y Vasos personalizados" data-message="¡Hola Impresionarte 3D! 👋 Vi la Jarra Térmica de Boca Juniors (Modelo Azul y Oro) en la web y me gustaría reservar una.">
+                        <a href="#contacto" class="promo-link">
+                            <img src="Chopp y Mates/Jarra Balnca Boca azul.png" alt="Jarra Exclusiva de Boca Juniors Azul - ¡Último Diseño!" class="promo-flyer-img">
+                        </a>
+                    </div>
+                    <!-- Slide 4: Jarra River -->
+                    <div class="promo-slide" data-slide-index="3" data-category="Chopp, Mates y Vasos personalizados" data-message="¡Hola Impresionarte 3D! 👋 Vi la Jarra Térmica de River Plate (Diseño Histórico 9/12) en la web y me gustaría reservar una.">
+                        <a href="#contacto" class="promo-link">
+                            <img src="Chopp y Mates/jarra de River.png" alt="Jarra Exclusiva de River Plate - ¡Diseño Histórico!" class="promo-flyer-img">
+                        </a>
+                    </div>
+                    <!-- Slide 5: Jarra Independiente -->
+                    <div class="promo-slide" data-slide-index="4" data-category="Chopp, Mates y Vasos personalizados" data-message="¡Hola Impresionarte 3D! 👋 Vi la Jarra Térmica de Independiente (Rey de Copas) en la web y me gustaría reservar una.">
+                        <a href="#contacto" class="promo-link">
+                            <img src="Chopp y Mates/Jarra independiente.png" alt="Jarra Exclusiva de Independiente - ¡Rey de Copas!" class="promo-flyer-img">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Flechas de navegación -->
+                <button class="promo-nav-btn promo-prev-btn" id="promoPrevBtn" aria-label="Diapositiva anterior">&#8249;</button>
+                <button class="promo-nav-btn promo-next-btn" id="promoNextBtn" aria-label="Siguiente diapositiva">&#8250;</button>
+
+                <!-- Puntos indicadores -->
+                <div class="promo-dots" id="promoDots">
+                    <span class="promo-dot active" data-dot-index="0"></span>
+                    <span class="promo-dot" data-dot-index="1"></span>
+                    <span class="promo-dot" data-dot-index="2"></span>
+                    <span class="promo-dot" data-dot-index="3"></span>
+                    <span class="promo-dot" data-dot-index="4"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Ventana Modal de Galería -->
     <div id="galleryModal" class="modal">
         <div class="modal-content">
@@ -1389,6 +1654,155 @@
             link.addEventListener('click', () => {
                 hamburgerBtn.classList.remove('open');
                 navLinks.classList.remove('open');
+            });
+        });
+
+        // --- LÓGICA DE POPUP PROMOCIONAL (CARRUSEL DE VOLANTES) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const promoModal = document.getElementById('promoModal');
+            const promoCloseBtn = document.getElementById('promoCloseBtn');
+            const promoSlidesWrapper = document.getElementById('promoSlidesWrapper');
+            const promoPrevBtn = document.getElementById('promoPrevBtn');
+            const promoNextBtn = document.getElementById('promoNextBtn');
+            const promoSlides = document.querySelectorAll('.promo-slide');
+            const promoDots = document.querySelectorAll('.promo-dot');
+
+            let currentSlide = 0;
+            const totalSlides = promoSlides.length;
+            let autoplayInterval = null;
+
+            // Abrir popup apenas cargue la web con una leve demora para suavidad visual
+            setTimeout(() => {
+                promoModal.style.display = 'flex';
+                promoModal.offsetHeight; // Forzar reflow
+                promoModal.classList.add('show');
+                startAutoplay();
+            }, 800);
+
+            // Temporizador de cierre automático general del modal después de 30 segundos
+            const autoCloseTimeout = setTimeout(closePromoModal, 30000);
+
+            function closePromoModal() {
+                stopAutoplay();
+                clearTimeout(autoCloseTimeout);
+                promoModal.classList.remove('show');
+                setTimeout(() => {
+                    promoModal.style.display = 'none';
+                }, 400);
+            }
+
+            // Cambiar a una diapositiva específica
+            function goToSlide(index) {
+                currentSlide = (index + totalSlides) % totalSlides;
+                // Mover el wrapper horizontalmente
+                promoSlidesWrapper.style.transform = `translateX(-${currentSlide * 20}%)`;
+                
+                // Actualizar puntos activos
+                promoDots.forEach((dot, idx) => {
+                    if (idx === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            // Avanzar y Retroceder
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentSlide - 1);
+            }
+
+            // Controles de reproducción automática (carrusel gira solo cada 5s)
+            function startAutoplay() {
+                stopAutoplay();
+                autoplayInterval = setInterval(nextSlide, 5000);
+            }
+
+            function stopAutoplay() {
+                if (autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                }
+            }
+
+            // Eventos de botones prev/next
+            promoPrevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                stopAutoplay(); // Detener autoplay si interactúa
+                prevSlide();
+            });
+
+            promoNextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                stopAutoplay(); // Detener autoplay si interactúa
+                nextSlide();
+            });
+
+            // Eventos de puntos (dots)
+            promoDots.forEach((dot, idx) => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    stopAutoplay();
+                    goToSlide(idx);
+                });
+            });
+
+            // Cerrar por botón X
+            promoCloseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closePromoModal();
+            });
+
+            // Cerrar al hacer clic fuera de la caja del carrusel
+            promoModal.addEventListener('click', (e) => {
+                if (e.target === promoModal) {
+                    closePromoModal();
+                }
+            });
+
+            // Cerrar al presionar la tecla Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && promoModal.classList.contains('show')) {
+                    closePromoModal();
+                }
+            });
+
+            // Acción al hacer clic en cualquiera de las diapositivas
+            promoSlides.forEach((slide) => {
+                const link = slide.querySelector('.promo-link');
+                link.addEventListener('click', (e) => {
+                    // Cerrar modal
+                    closePromoModal();
+                    
+                    // Obtener los datos personalizados de la diapositiva activa
+                    const category = slide.getAttribute('data-category');
+                    const message = slide.getAttribute('data-message');
+                    
+                    // Pre-rellenar formulario de WhatsApp con los datos
+                    const servicioSelect = document.getElementById('wsp-servicio');
+                    const detalleTextarea = document.getElementById('wsp-detalle');
+                    
+                    if (servicioSelect && category) {
+                        servicioSelect.value = category;
+                    }
+                    
+                    if (detalleTextarea && message) {
+                        detalleTextarea.value = message;
+                    }
+                    
+                    // Desplazamiento suave al formulario
+                    const contactoSection = document.getElementById('contacto');
+                    if (contactoSection) {
+                        contactoSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
             });
         });
 
